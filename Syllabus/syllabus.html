@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Content Lock Protection Start -->
+<style>
+  html, body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+  }
+  *::selection, *::-moz-selection {
+    background: none;
+    color: inherit;
+  }
+</style>
+<script>
+  // Disable right click/context menu
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable copy, cut, paste, drag, drop
+  ['copy','cut','paste','drag','drop','selectstart'].forEach(evt =>
+    document.addEventListener(evt, e => e.preventDefault())
+  );
+
+  // Disable print (Ctrl+P), view source (Ctrl+U), save (Ctrl+S), inspect (Ctrl+Shift+I/J), refresh (Ctrl+R), copy (Ctrl+C), paste (Ctrl+V), cut (Ctrl+X)
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey && ['p','s','u','c','v','x','r'].includes(e.key.toLowerCase())) ||
+      (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase())) ||
+      (e.key === 'PrintScreen')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Screenshot protection: blur on PrintScreen
+  window.addEventListener('keyup', function(e) {
+    if (e.key === 'PrintScreen') {
+      document.body.style.filter = 'blur(12px)';
+      setTimeout(()=>{document.body.style.filter='none';},700);
+    }
+  });
+</script>
+<!-- Content Lock Protection End -->
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Syllabus Courses - Chitragupt Academy</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --main-gradient: linear-gradient(135deg, #dbeafe 0%, #f3e8ff 100%);
+      --header-gradient: linear-gradient(90deg, #7c3aed 60%, #06b6d4 100%);
+      --card-gradient: linear-gradient(135deg, #fff 70%, #f3e8ff 100%);
+      --card-unlocked: linear-gradient(135deg, #e8f5e9 80%, #f3e8ff 100%);
+      --card-shadow: 0 8px 32px #10b98133;
+      --card-shadow-hover: 0 12px 36px #06b6d433;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', 'Montserrat', Arial, sans-serif;
+      background: var(--main-gradient);
+      color: #1a202c;
+      min-height: 100vh;
+      user-select: none;
+    }
+    header {
+      background: var(--header-gradient);
+      color: #fff;
+      padding: 38px 0 30px 0;
+      text-align: center;
+      box-shadow: 0 4px 16px #7c3aed22;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      animation: fadeInDown 1s;
+      position: relative;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    header h1 {
+      margin: 0 0 8px 0;
+      font-size: 2.6rem;
+      letter-spacing: 2px;
+      font-weight: 1000;
+      text-shadow: 0 2px 12px #0002;
+      color: aquamarine;
+      text-transform: uppercase;
+    }
+    .academy-title {
+      font-size: 2rem;
+      font-weight: 1000;
+      letter-spacing: 1.5px;
+      color: #ffae00;
+      margin-bottom: 2px;
+      display: block;
+    }
+    .iso-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: #fff;
+      opacity: 0.85;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .header-desc {
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: #d1fae5;
+      margin-top: 8px;
+      display: block;
+      text-shadow: 0 1px 8px #0004;
+    }
+
+    .courses-container {
+      max-width: 1200px;
+      margin: 44px auto 0 auto;
+      padding: 0 18px 40px 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 36px;
+      justify-content: center;
+      animation: fadeInUp 1.1s;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .course-card {
+      background: var(--card-gradient);
+      border-radius: 24px;
+      box-shadow: 0 4px 24px #6366f122;
+      width: 320px;
+      min-height: 220px;
+      padding: 36px 22px 26px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: default;
+      transition: transform 0.18s, box-shadow 0.18s, border 0.18s, background 0.18s;
+      border: 2.5px solid transparent;
+      text-align: center;
+      position: relative;
+      animation: popIn 0.9s;
+      opacity: 0.6;
+      pointer-events: none;
+      user-select: none;
+      backdrop-filter: blur(3px);
+      overflow: hidden;
+    }
+    .course-card.unlocked {
+      border: 2.5px solid #10b981;
+      background: var(--card-unlocked);
+      cursor: pointer;
+      opacity: 1;
+      pointer-events: auto;
+      box-shadow: var(--card-shadow);
+      transform: scale(1.03);
+    }
+    .course-card.unlocked:hover {
+      transform: translateY(-8px) scale(1.06);
+      background: linear-gradient(135deg, #d1fae5 70%, #e0e7ff 100%);
+      border-color: #06b6d4;
+      box-shadow: var(--card-shadow-hover);
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.7);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .course-icon {
+      font-size: 3.2rem;
+      color: #6366f1;
+      margin-bottom: 16px;
+      margin-top: 2px;
+      animation: popIn 1s;
+      display: inline-block;
+      filter: drop-shadow(0 2px 8px #6366f144);
+      background: linear-gradient(135deg, #f3e8ff 60%, #e0e7ff 100%);
+      border-radius: 50%;
+      padding: 16px;
+      box-shadow: 0 2px 12px #6366f122;
+    }
+    .course-title {
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #222;
+      margin-bottom: 10px;
+      letter-spacing: 0.7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 0 1px 6px #e0e7ff;
+    }
+    .course-desc {
+      color: #555;
+      font-size: 1.08rem;
+      margin-bottom: 0;
+      min-height: 48px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+    .lock {
+      font-size: 1.45em;
+      margin-left: 10px;
+      vertical-align: middle;
+      color: #e11d48;
+      transition: color 0.2s;
+      display: inline;
+    }
+    .course-card.unlocked .lock.lock-closed { display: none; }
+    .course-card.unlocked .lock.lock-open {
+      display: inline;
+      color: #10b981;
+      margin-left: 10px;
+    }
+    .lock.lock-open { display: none; }
+    .course-card.unlocked .lock.lock-open { display: inline; }
+    .course-card.unlocked .lock.lock-closed { display: none; }
+    .course-card .lock.lock-closed { display: inline; }
+    .course-card .lock.lock-open { display: none; }
+    .course-card.unlocked .lock.lock-open { display: inline; }
+    .course-card.unlocked .lock.lock-closed { display: none; }
+
+    footer {
+      text-align: center;
+      padding: 22px 0 14px 0;
+      font-size: 1.1rem;
+      color: #555;
+      margin-top: 40px;
+      background: #f3e8ff;
+      border-top: 2px solid #e0e7ff;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+    .back-home {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 12px 28px;
+      background: linear-gradient(90deg, #7c3aed 60%, #06b6d4 100%);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.13rem;
+      letter-spacing: 1px;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px #7c3aed22;
+    }
+    .back-home:hover {
+      background: linear-gradient(90deg, #06b6d4 60%, #7c3aed 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px #06b6d444;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1100px) {
+      .courses-container { gap: 24px; }
+      .course-card { width: 90vw; max-width: 340px; }
+    }
+    @media (max-width: 800px) {
+      .courses-container { gap: 18px; }
+      .course-card { width: 98vw; max-width: 400px; }
+      header h1 { font-size: 2.1rem; }
+      .academy-title { font-size: 1.3rem; }
+    }
+    @media (max-width: 600px) {
+      .courses-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding-bottom: 24px;
+      }
+      .course-card {
+        width: 98vw;
+        min-width: 0;
+        padding: 18px 10px 14px 10px;
+        font-size: 1.01rem;
+      }
+      header h1 { font-size: 1.3rem; }
+      .academy-title { font-size: 1.1rem; }
+      .header-desc { font-size: 1rem; }
+    }
+  </style>
+  <script>
+    // Font Awesome icon classes for each course
+    const courseIcons = {
+      "bcc": "fas fa-desktop",
+      "advanced": "fas fa-laptop",
+      "cpct": "fas fa-keyboard",
+      "internet": "fas fa-globe",
+      "tally": "fas fa-calculator",
+      "graphic": "fas fa-paint-brush",
+      "powerbi": "fas fa-chart-bar",
+      "webdesign": "fas fa-code"
+    };
+    // Course id to syllabus page mapping
+    const coursePages = {
+      "bcc": "syl/basic.html",
+      "advanced": "syl/advanced.html",
+      "cpct": "syl/cpct.html",
+      "internet": "syl/internet.html",
+      "tally": "syl/tally.html",
+      "graphic": "syl/graphic.html",
+      "powerbi": "syl/power.html",
+      "webdesign": "syl/web.html",
+      "exams": "syl/exam.html"
+    };
+    // Course list
+    const courseOrder = [
+      { id: "bcc", label: "Basic Computer Course", desc: "Welcome" },
+      { id: "advanced", label: "Advanced Computer Course", desc: "Welcome" },
+      { id: "cpct", label: "CPCT Preparation", desc: "Welcome" },
+      { id: "internet", label: "Internet & Email", desc: "Welcome" },
+      { id: "tally", label: "Tally with GST", desc: "Welcome" },
+      { id: "graphic", label: "Graphic Design", desc: "Welcome" },
+      { id: "powerbi", label: "MS Power BI", desc: "Welcome" },
+      { id: "webdesign", label: "Web Designing", desc: "Welcome" },
+      { id: "exams", label: "Competitive Exams", desc: "Welcome" }
+    ];
+    // Disable right click, dev tools, copy, etc.
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', function(e) {
+      if (
+        (e.ctrlKey && ['u', 'U', 'c', 'C', 's', 'S'].includes(e.key)) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get which course is unlocked from localStorage
+      // Example: localStorage.setItem('courseAccess', 'bcc');
+      const access = localStorage.getItem('courseAccess');
+      const container = document.querySelector('.courses-container');
+      container.innerHTML = '';
+      courseOrder.forEach(course => {
+        // Create card
+        const card = document.createElement('div');
+        card.className = 'course-card';
+        card.tabIndex = -1;
+        // Card content with Font Awesome icon
+        card.innerHTML = `
+          <span class="course-icon"><i class="${courseIcons[course.id]}"></i></span>
+          <span class="course-title">
+            ${course.label}
+            <span class="lock lock-closed">🔒</span>
+            <span class="lock lock-open">🔓</span>
+          </span>
+          <span class="course-desc">${course.desc}</span>
+        `;
+        // If unlocked
+        if (access === course.id) {
+          card.classList.add('unlocked');
+          card.tabIndex = 0;
+          card.addEventListener('click', function() {
+            window.location.href = coursePages[course.id];
+          });
+        }
+        // Locked: do nothing on click, no pointer events, no alert
+        container.appendChild(card);
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>SYLLABUS</h1>
+    <span class="academy-title">CHITRAGUPT ACADEMY</span>
+    <span class="iso-title">AN ISO CERTIFIED INSTITUTION</span>
+    <span class="header-desc">Select a course to view syllabus</span>
+  </header>
+  <div class="courses-container">
+    <!-- Course cards will be rendered by JS -->
+  </div>
+  <footer>
+    &copy; <span id="year"></span> Pawan Soni<br>
+   <a href="javascript:history.back()" class="back-btn">Back</a>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
