@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Content Lock Protection Start -->
+<style>
+  html, body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+  }
+  *::selection, *::-moz-selection {
+    background: none;
+    color: inherit;
+  }
+</style>
+<script>
+  // Disable right click/context menu
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable copy, cut, paste, drag, drop
+  ['copy','cut','paste','drag','drop','selectstart'].forEach(evt =>
+    document.addEventListener(evt, e => e.preventDefault())
+  );
+
+  // Disable print (Ctrl+P), view source (Ctrl+U), save (Ctrl+S), inspect (Ctrl+Shift+I/J), refresh (Ctrl+R), copy (Ctrl+C), paste (Ctrl+V), cut (Ctrl+X)
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey && ['p','s','u','c','v','x','r'].includes(e.key.toLowerCase())) ||
+      (e.ctrlKey && e.shiftKey && ['i','j'].includes(e.key.toLowerCase())) ||
+      (e.key === 'PrintScreen')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Screenshot protection: blur on PrintScreen
+  window.addEventListener('keyup', function(e) {
+    if (e.key === 'PrintScreen') {
+      document.body.style.filter = 'blur(12px)';
+      setTimeout(()=>{document.body.style.filter='none';},700);
+    }
+  });
+</script>
+<!-- Content Lock Protection End -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Notes - Chitragupt Academy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e3f2fd, #bbdefb);
+      color: #2c3e50;
+      user-select: none;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #007acc;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #007acc;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+
+    .notes-section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .course-link {
+      background: white;
+      margin: 15px 0;
+      padding: 15px 25px;
+      border-left: 8px solid #007acc;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #2c3e50;
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, background 0.2s;
+      position: relative;
+      cursor: not-allowed;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.7;
+    }
+    .course-link .lock {
+      font-size: 1.2em;
+      margin-right: 12px;
+      color: #007acc;
+      transition: color 0.2s;
+    }
+    .course-link.unlocked {
+      border-left: 8px solid #2ecc40;
+      background: #e8f5e9;
+      color: #2e7d32;
+      cursor: pointer;
+      pointer-events: auto;
+      opacity: 1;
+      font-weight: bold;
+    }
+    .course-link.unlocked .lock {
+      color: #2ecc40;
+    }
+    .course-link.unlocked:hover {
+      transform: translateX(5px);
+      background-color: #d0f8ce;
+    }
+    .course-link.unlocked .lock {
+      content: "🔓";
+    }
+
+    .course-link .lock-open {
+      display: none;
+    }
+    .course-link.unlocked .lock-closed {
+      display: none;
+    }
+    .course-link.unlocked .lock-open {
+      display: inline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #007acc;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-home:hover {
+      background-color: #005fa3;
+    }
+
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body::selection {
+      background: none;
+    }
+  </style>
+  <script>
+    // Course id to page mapping
+    const coursePages = {
+      "bcc": "Basic.html",
+      "advanced": "Advance_Ms/advance.html",
+      "cpct": "CPCT.html",
+      "internet": "Internet.html",
+      "tally": "Tally.html",
+      "graphic": "Graphic.html",
+      "powerbi": "PowerBI.html",
+      "webdesign": "WebDesign.html",
+      "exams": "Exams.html"
+    };
+
+    // Password to course id mapping (should be set at login page)
+    // e.g., localStorage.setItem('courseAccess', 'bcc');
+    const courseOrder = [
+      { id: "bcc", label: "Basic Computer Course Notes" },
+      { id: "advanced", label: "Advanced Computer Course Notes" },
+      { id: "cpct", label: "CPCT Preparation Notes" },
+      { id: "internet", label: "Internet & Email Notes" },
+      { id: "tally", label: "Tally with GST Notes" },
+      { id: "graphic", label: "Graphic Design Notes" },
+      { id: "powerbi", label: "MS Power BI Notes" },
+      { id: "webdesign", label: "Web Designing Notes" },
+      { id: "exams", label: "Competitive Exams Notes"}
+    ];
+
+    // Disable right click, dev tools, copy, etc.
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', function(e) {
+      if (
+        (e.ctrlKey && ['u', 'U', 'c', 'C', 's', 'S'].includes(e.key)) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get which course is unlocked from localStorage
+      const access = localStorage.getItem('courseAccess');
+      // Render all course links with correct lock/unlock state
+      const section = document.querySelector('.notes-section');
+      section.innerHTML = '';
+      courseOrder.forEach(course => {
+        // Create link element
+        const a = document.createElement('a');
+        a.className = 'course-link';
+        a.id = 'course-' + course.id;
+        a.href = coursePages[course.id] || '#';
+        // Lock icons: closed and open
+        a.innerHTML = `
+          <span class="lock lock-closed">🔒</span>
+          <span class="lock lock-open">🔓</span>
+          ${course.label}
+        `;
+        // If this is the unlocked course, enable it
+        if (access === course.id) {
+          a.classList.add('unlocked');
+          a.tabIndex = 0;
+          a.addEventListener('click', function(e) {
+            // Only go to the page if the file exists (you can adjust as needed)
+            if (a.href.endsWith('.html')) {
+              // Allow navigation
+            } else {
+              e.preventDefault();
+              alert('Course notes coming soon!');
+            }
+          });
+        } else {
+          // Locked: prevent navigation
+          a.tabIndex = -1;
+          a.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This course is locked for your account.');
+          });
+        }
+        section.appendChild(a);
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+
+  <div class="notes-section">
+    <!-- Course links will be rendered by JS -->
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> Pawan Soni<br>
+    <a href="javascript:history.back()" class="back-btn">Back</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
