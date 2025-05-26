@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MS Office - CHITRAGUPT ACADEMY</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --secondary: #1e3a8a;
+      --accent: #f59e42;
+      --bg-gradient: linear-gradient(135deg, #e0f2fe 0%, #f8fafc 100%);
+      --card-gradient: linear-gradient(120deg, #f1f5f9 60%, #e0e7ef 100%);
+      --shadow: 0 8px 24px 0 rgba(59,130,246,0.10);
+    }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-gradient);
+      color: #1e293b;
+      min-height: 100vh;
+      user-select: none;
+      overflow-x: hidden;
+    }
+    header {
+      background: var(--primary);
+      color: #fff;
+      padding: 38px 16px 22px 16px;
+      text-align: center;
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 8px 32px rgba(59,130,246,0.10);
+      position: relative;
+      z-index: 2;
+      animation: fadeInDown 1s;
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin: 0;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-shadow: 0 2px 12px #60a5fa55;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 7px;
+      color: #dbeafe;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+    main {
+      max-width: 980px;
+      margin: -40px auto 0 auto;
+      padding: 32px 28px 16px 28px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+      min-height: 75vh;
+      animation: fadeIn 1.2s;
+    }
+    .section-card {
+      background: var(--card-gradient);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(59,130,246,0.07);
+      margin-bottom: 30px;
+      padding: 26px 28px 18px 28px;
+      animation: cardPop 0.9s;
+      transition: box-shadow 0.3s;
+      position: relative;
+    }
+    .section-card:hover {
+      box-shadow: 0 8px 32px rgba(59,130,246,0.15);
+    }
+    @keyframes cardPop {
+      from { opacity: 0; transform: translateY(40px) scale(0.98);}
+      to { opacity: 1; transform: translateY(0) scale(1);}
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      font-size: 1.35em;
+      color: var(--secondary);
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    .section-title .icon {
+      font-size: 1.7em;
+      margin-right: 14px;
+      filter: drop-shadow(1px 2px 2px #bae6fd);
+      animation: bounceIcon 1.5s infinite alternate;
+    }
+    @keyframes bounceIcon {
+      from {transform: translateY(0);}
+      to {transform: translateY(-7px);}
+    }
+    ul {
+      padding-left: 22px;
+      margin: 0;
+    }
+    ul li {
+      font-size: 1.08em;
+      margin-bottom: 9px;
+      display: flex;
+      align-items: center;
+      line-height: 1.6;
+    }
+    ul li .li-icon {
+      margin-right: 10px;
+      font-size: 1.2em;
+    }
+    .component-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 30px;
+      margin: 18px 0 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .component-list li {
+      background: #f1f5f9;
+      border-radius: 10px;
+      padding: 10px 18px;
+      min-width: 240px;
+      box-shadow: 0 2px 8px #bae6fd33;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+      font-size: 1.06em;
+      transition: background 0.2s;
+    }
+    .component-list li:hover {
+      background: #e0f2fe;
+    }
+    .component-list .li-icon {
+      font-size: 1.7em;
+      margin-right: 14px;
+      filter: drop-shadow(1px 2px 2px #bae6fd);
+    }
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 36px auto 12px auto;
+      padding: 13px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(90deg,#3b82f6 60%,#1e3a8a 100%);
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 16px #bae6fd55;
+      letter-spacing: 1px;
+      transition: background 0.3s, transform 0.2s;
+      animation: bounceBtn 2s infinite alternate;
+    }
+    .back-btn:hover {
+      background: linear-gradient(90deg,#1e3a8a 60%,#3b82f6 100%);
+      transform: scale(1.07);
+    }
+    @keyframes bounceBtn {
+      0% {transform: translateY(0);}
+      100% {transform: translateY(-5px);}
+    }
+    footer {
+      text-align: center;
+      padding: 12px 0 8px 0;
+      font-size: 1.05rem;
+      color: #64748b;
+      background: #f1f5f9;
+      border-top: 1px solid #e5e7eb;
+      letter-spacing: 1px;
+      font-weight: 500;
+      opacity: 0.9;
+      margin-top: 24px;
+      user-select: none;
+    }
+    /* Animations */
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-30px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.98);}
+      100% { opacity: 1; transform: scale(1);}
+    }
+    /* Responsive */
+    @media (max-width: 800px) {
+      main {padding: 12vw 3vw 6vw 3vw;}
+      .section-card {padding: 18px 8vw 12px 8vw;}
+      .component-list {flex-direction: column;}
+      .component-list li {min-width: 0;}
+    }
+    @media (max-width: 500px) {
+      header h1 {font-size: 1.3em;}
+      main {padding: 4vw 2vw;}
+      .section-title {font-size: 1.08em;}
+      .section-card {padding: 12px 2vw;}
+      .back-btn {padding: 10px 18px;}
+    }
+    /* Disable copy, right-click, screenshot (basic protection) */
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  </style>
+  <script>
+    document.addEventListener("contextmenu", e => {
+      e.preventDefault();
+    });
+    document.addEventListener("selectstart", e => e.preventDefault());
+    document.addEventListener("keydown", function(e) {
+      if ((e.ctrlKey && ['c','u','s','p','x','v','a'].includes(e.key.toLowerCase())) ||
+          e.key === 'PrintScreen' || e.keyCode === 123) {
+        e.preventDefault();
+      }
+    });
+    document.addEventListener("keyup", function(e) {
+      if (e.key === 'PrintScreen') {
+        navigator.clipboard.writeText('');
+      }
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+  <main>
+    <!-- What is MS Office -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">💡</span>What is MS Office?</div>
+      <p>
+        <span class="li-icon">🖥️</span>
+        <b>Microsoft Office</b> is a suite of productivity software developed by Microsoft. It helps users with word processing, data management, presentations, emails, and more. Widely used in homes, schools, and offices worldwide.
+      </p>
+    </div>
+
+    <!-- Main Components -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🧩</span>Main Components of MS Office</div>
+      <ul class="component-list">
+        <li><span class="li-icon">📝</span><b>MS Word:</b> Create documents, letters, and reports.</li>
+        <li><span class="li-icon">📊</span><b>MS Excel:</b> Manage data, calculations, and charts.</li>
+        <li><span class="li-icon">📽️</span><b>MS PowerPoint:</b> Make presentations with text, images, and animations.</li>
+        <li><span class="li-icon">📧</span><b>MS Outlook:</b> Manage emails, calendars, and contacts.</li>
+        <li><span class="li-icon">🗄️</span><b>MS Access:</b> Database management for large data.</li>
+        <li><span class="li-icon">📰</span><b>MS Publisher:</b> Design brochures, flyers, and newsletters.</li>
+        <li><span class="li-icon">🗒️</span><b>MS OneNote:</b> Take and organize notes, collaborate easily.</li>
+      </ul>
+    </div>
+   <!-- Extensions Section -->
+<div class="section-card" style="background: #f0f8ff; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 20px; margin: 30px auto; max-width: 800px; font-family: 'Segoe UI', sans-serif;">
+  <div class="section-title" style="font-size: 24px; font-weight: bold; margin-bottom: 20px; color: #2c3e50; display: flex; align-items: center;">
+    <span class="icon" style="margin-right: 10px; font-size: 28px;">🧩</span>Programs & File Extensions
+  </div>
+  <ul class="component-list" style="list-style: none; padding: 0;">
+    <li style="padding: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: center; transition: background 0.3s;">
+      <span class="li-icon" style="margin-right: 10px;">📝</span><b>MS Word:</b>&nbsp; <span style="color: #2980b9;">.doc</span> (Old), <span style="color: #27ae60;">.docx</span> (New)
+    </li>
+    <li style="padding: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: center; transition: background 0.3s;">
+      <span class="li-icon" style="margin-right: 10px;">📊</span><b>MS Excel:</b>&nbsp; <span style="color: #2980b9;">.xls</span> (Old), <span style="color: #27ae60;">.xlsx</span> (New)
+    </li>
+    <li style="padding: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: center; transition: background 0.3s;">
+      <span class="li-icon" style="margin-right: 10px;">📽️</span><b>MS PowerPoint:</b>&nbsp; <span style="color: #2980b9;">.ppt</span> (Old), <span style="color: #27ae60;">.pptx</span> (New)
+    </li>
+    <li style="padding: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: center; transition: background 0.3s;">
+      <span class="li-icon" style="margin-right: 10px;">📧</span><b>MS Outlook:</b>&nbsp; <span style="color: #8e44ad;">.pst</span>, <span style="color: #8e44ad;">.ost</span>
+    </li>
+    <li style="padding: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: center; transition: background 0.3s;">
+      <span class="li-icon" style="margin-right: 10px;">🗄️</span><b>MS Access:</b>&nbsp; <span style="color: #2980b9;">.mdb</span> (Old), <span style="color: #27ae60;">.accdb</span> (New)
+    </li>
+    <li style="padding: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: center; transition: background 0.3s;">
+      <span class="li-icon" style="margin-right: 10px;">📰</span><b>MS Publisher:</b>&nbsp; <span style="color: #d35400;">.pub</span>
+    </li>
+    <li style="padding: 10px; display: flex; align-items: center; transition: background 0.3s;">
+      <span class="li-icon" style="margin-right: 10px;">🗒️</span><b>MS OneNote:</b>&nbsp; <span style="color: #2c3e50;">.one</span>
+    </li>
+  </ul>
+</div>
+
+    <!-- Features -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">✨</span>Features of MS Office</div>
+      <ul>
+        <li><span class="li-icon">🖱️</span>Easy-to-use graphical interface</li>
+        <li><span class="li-icon">☁️</span>Cloud integration via OneDrive</li>
+        <li><span class="li-icon">📄</span>Ready-made templates</li>
+        <li><span class="li-icon">🤝</span>Real-time collaboration</li>
+        <li><span class="li-icon">🎨</span>Smart formatting & design tools</li>
+        <li><span class="li-icon">🔒</span>Security and encryption options</li>
+      </ul>
+    </div>
+
+    <!-- Uses -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🎯</span>Uses of MS Office in Daily Life</div>
+      <ul>
+        <li><span class="li-icon">📚</span>Creating assignments and notes</li>
+        <li><span class="li-icon">✉️</span>Making letters and resumes</li>
+        <li><span class="li-icon">📒</span>Maintaining records and budgets</li>
+        <li><span class="li-icon">🖥️</span>Delivering presentations</li>
+        <li><span class="li-icon">📬</span>Managing emails and schedules</li>
+      </ul>
+    </div>
+
+    <!-- Versions -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🕰️</span>Versions of MS Office</div>
+      <p>
+      <ul>
+      <li>MS Office 2003</li>
+      <li>MS Office 2007</li>
+      <li>MS Office 2010</li>
+      <li>MS Office 2013</li>
+      <li>MS Office 2016</li>
+      <li>MS Office 2019</li>
+      <li>MS Office 365 (Cloud-based)</li>
+    </ul>
+      </p>
+    </div>
+
+    <a href="../ms_office.html" class="back-btn">Back</a>
+  </main>
+  <footer>&copy; Pawan Soni</footer>
+</body>
+</html>

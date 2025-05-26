@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BCC - MS Word Detailed Notes</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #222;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: #9c27b0;
+    background: linear-gradient(to right, #7b1fa2, #9c27b0);
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    animation: fadeInDown 1s ease forwards;
+  }
+
+  header h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 2.8rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  }
+  header p {
+    margin: 0.5rem 0 0;
+    font-weight: 500;
+    font-size: 1.85rem;
+    letter-spacing: 1px;
+  }
+
+  main {
+    max-width: 920px;
+    margin: 2rem auto 4rem;
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    animation: fadeInUp 1s ease forwards;
+  }
+
+  h2.section-title {
+    position: relative;
+    font-weight: 600;
+    font-size: 1.9rem;
+    color: #7b1fa2;
+    padding-bottom: 10px;
+    margin-top: 3rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 3px solid #fda085;
+    animation: slideInLeft 1s ease forwards;
+  }
+
+  h3.subsection-title {
+    color: #9c27b0;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-left: 5px solid #fda085;
+    padding-left: 10px;
+  }
+
+  p.intro {
+    font-size: 1.05rem;
+    color: #555;
+    margin-bottom: 1.6rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+  }
+
+  ul li {
+    margin-bottom: 0.7rem;
+    font-size: 1rem;
+  }
+
+  .icon-arrow {
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+    animation: bounce 2s infinite;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem 1rem 3rem;
+    color: #eee;
+    font-weight: 300;
+    font-size: 0.9rem;
+    letter-spacing: 0.6px;
+  }
+
+  code, .code {
+    font-family: monospace;
+    background: #ffe0f0;
+    padding: 6px 10px;
+    margin: 0.6rem 0 1.2rem;
+    display: inline-block;
+    border-radius: 6px;
+    color: #9c27b0;
+    font-weight: 700;
+    letter-spacing: 0.03rem;
+    box-shadow: 0 2px 5px rgba(156,39,176,0.3);
+    user-select: all;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1.8rem;
+  }
+
+  th, td {
+    border: 1px solid #f9c4d2;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  th {
+    background-color: #fda085;
+    color: #5d0e51;
+  }
+
+  tr:nth-child(even) {
+    background-color: #ffe7f1;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 900px) {
+    main {
+      margin: 1.5rem 1rem 3rem;
+      padding: 1.8rem 2rem;
+      border-radius: 15px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    h2.section-title {
+      font-size: 1.7rem;
+    }
+
+    h3.subsection-title {
+      font-size: 1.3rem;
+      padding-left: 8px;
+      border-left-width: 4px;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    code {
+      font-size: 0.9rem;
+      padding: 6px 10px;
+    }
+
+    th, td {
+      font-size: 0.9rem;
+      padding: 8px 10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    main {
+      margin: 1rem 0.8rem 3rem;
+      padding: 1.4rem 1.6rem;
+      border-radius: 12px;
+    }
+
+    header {
+      padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+    header p {
+      font-size: 1rem;
+    }
+
+    h2.section-title {
+      font-size: 1.4rem;
+      margin-top: 2.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 8px;
+    }
+
+    h3.subsection-title {
+      font-size: 1.1rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.7rem;
+      border-left-width: 3px;
+      padding-left: 6px;
+    }
+
+    ul li {
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p.intro {
+      font-size: 1rem;
+      margin-bottom: 1.3rem;
+    }
+
+    code {
+      font-size: 0.85rem;
+      padding: 5px 8px;
+      word-break: break-word;
+    }
+
+    table {
+      font-size: 0.85rem;
+    }
+
+    th, td {
+      padding: 6px 8px;
+    }
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-35px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(35px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Screenshot container with lock overlay */
+  .screenshot-container {
+    position: relative;
+    max-width: 600px;
+    margin: 3rem auto 2rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(156,39,176,0.6);
+    cursor: not-allowed;
+    user-select: none;
+    animation: zoomIn 1.5s ease forwards;
+  }
+
+  .screenshot-container img {
+    width: 100%;
+    height: auto;
+    filter: brightness(0.8);
+    pointer-events: none;
+  }
+
+  .lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4rem;
+    color: #d1a9e8aa;
+    pointer-events: none;
+    user-select: none;
+    animation: pulseLock 3s ease-in-out infinite;
+    text-shadow: 0 0 10px #d1a9e8bb, 0 0 18px #a145f9cc;
+  }
+
+  .back-button {
+      display: block;
+      margin: 50px auto 10px;
+      background: linear-gradient(90deg, #283593, #5c6bc0);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+      text-align: center;
+      width: max-content;
+    }
+    .back-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #ff4081, #ff7043);
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1a237e;
+      background: #e3f2fd;
+      border-top: 1px solid #cfd8dc;
+    }
+  @keyframes zoomIn {
+    from {opacity: 0; transform: scale(0.9);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes pulseLock {
+    0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
+    50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
+  }
+
+  /* Disable selection and copying */
+  body, .back-button, .screenshot-container, .lock-overlay {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  @media print {
+    html, body { display: none !important; }
+  }
+</style>
+<script>
+  // Disable right-click and keyboard shortcuts to lock content
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'PrintScreen' ||
+      (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c')) ||
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+    }
+  });
+  window.addEventListener("keyup", function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert("Screenshot is locked on this page.");
+    }
+  });
+</script>
+</head>
+<body>
+<header>
+  <h1>CHITRAGUPT ACADEMY</h1>
+  <p>AN ISO CERTIFIED INSTITUTION</p>
+</header>
+<main role="main" aria-label="Microsoft Word Detailed Notes">
+
+  <h2 class="section-title" tabindex="0">1. Introduction to MS Word</h2>
+  <p class="intro">
+    Microsoft Word is a popular word-processing application widely used for creating, editing, formatting, and printing text documents. It is an essential tool for writing letters, reports, resumes, and many other types of documents.
+  </p>
+  <ul>
+    <li>Part of the Microsoft Office Suite</li>
+    <li>Used for creating text documents with formatting, images, and tables</li>
+    <li>Supports spell check, grammar check, and many useful editing features</li>
+    <li>Allows saving documents in various formats like DOCX, PDF, and more</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">2. MS Word Interface and Components</h2>
+  <p class="intro">Key components to know for efficient use:</p>
+  <ul>
+    <li><strong>Title Bar:</strong> Displays document name</li>
+    <li><strong>Ribbon:</strong> Tabs like Home, Insert, Design, Layout, References, Mailings, Review, View</li>
+    <li><strong>Quick Access Toolbar:</strong> Frequently used commands</li>
+    <li><strong>Document Area:</strong> Where you type your content</li>
+    <li><strong>Status Bar:</strong> Displays page number, word count, language, etc.</li>
+    <li><strong>Scroll Bars:</strong> Navigate through document</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">3. Creating and Managing Documents</h2>
+  <ul>
+    <li>Opening a new blank document</li>
+    <li>Using templates for specific document types</li>
+    <li>Saving documents using <code>Save</code> and <code>Save As</code></li>
+    <li>Opening, closing, and printing documents</li>
+    <li>Recovering unsaved documents</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">4. Text Entry and Basic Editing</h2>
+  <ul>
+    <li>Typing and deleting text</li>
+    <li>Selecting text using keyboard and mouse</li>
+    <li>Copy, Cut, Paste operations</li>
+    <li>Undo and Redo actions</li>
+    <li>Using the clipboard and format painter</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">5. Formatting Text</h2>
+  <ul>
+    <li>Font type, size, color adjustments</li>
+    <li>Bold, Italic, Underline, Strikethrough</li>
+    <li>Text highlighting</li>
+    <li>Text case changes (uppercase, lowercase)</li>
+    <li>Text effects and typography</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">6. Paragraph Formatting</h2>
+  <ul>
+    <li>Alignment: Left, Center, Right, Justify</li>
+    <li>Indentation and spacing</li>
+    <li>Line spacing settings</li>
+    <li>Bullets and numbering</li>
+    <li>Borders and shading</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">7. Working with Styles and Themes</h2>
+  <ul>
+    <li>Using predefined styles for headings, paragraphs</li>
+    <li>Modifying and creating custom styles</li>
+    <li>Applying document themes for consistent design</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">8. Working with Tables</h2>
+  <ul>
+    <li>Inserting tables</li>
+    <li>Adding and deleting rows and columns</li>
+    <li>Formatting tables: borders, shading, style</li>
+    <li>Merging and splitting cells</li>
+    <li>Sorting table data</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">9. Inserting Images, Shapes, and Objects</h2>
+  <ul>
+    <li>Inserting pictures from files or online</li>
+    <li>Resizing and positioning images</li>
+    <li>Adding shapes and SmartArt</li>
+    <li>Using Text Wrapping options</li>
+    <li>Inserting charts and WordArt</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">10. Page Setup and Printing</h2>
+  <ul>
+    <li>Setting margins, orientation, size</li>
+    <li>Inserting and formatting headers and footers</li>
+    <li>Adding page numbers</li>
+    <li>Print preview and print settings</li>
+    <li>Setting print area and page breaks</li>
+  </ul>
+
+  <h2 class="section-title" tabindex="0">11. Proofing Tools</h2>
+  <ul>
+    <li>Spell Check and Grammar Check</li>
+    <li>Thesaurus and word count</li>
+    <li>AutoCorrect options</li>
+    <li>Language selection and translation</li>
+    <li>Using comments for review</li>
+  </ul>
+
+   <h2 class="section-title" tabindex="0">13. Advanced Features</h2>
+  <ul>
+    <li>Track Changes and document collaboration</li>
+    <li>Mail Merge for bulk mailing</li>
+    <li>Creating tables of contents</li>
+    <li>Using macros to automate tasks</li>
+    <li>Protecting documents with passwords</li>
+  </ul>
+
+</main>
+
+<div class="screenshot-container" aria-label="Microsoft Word interface screenshot is locked and unavailable">
+  <img src="https://www.oreilly.com/api/v2/epubs/9781430235750/files/images/103.jpg" alt="Microsoft Word interface screenshot" draggable="false" />
+  <div class="lock-overlay" aria-hidden="true">🔒</div>
+</div>
+
+<br>
+ <a href="../ms_office.html" class="back-button">Back</a>
+  <footer>&copy; Pawan Soni</footer>
+<br><br><br>
+
+<script>
+  const sections = document.querySelectorAll("h2.section-title, h3.subsection-title");
+  window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY + window.innerHeight - 100;
+    sections.forEach(section => {
+      if(scrollY > section.offsetTop) {
+        section.style.opacity = 1;
+        section.style.transform = "translateX(0)";
+      }
+    });
+  });
+
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'PrintScreen' ||
+      (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c')) ||
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+    }
+  });
+  window.addEventListener("keyup", function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert("Screenshot is locked on this page.");
+    }
+  });
+</script>
+</body>
+</html>
+

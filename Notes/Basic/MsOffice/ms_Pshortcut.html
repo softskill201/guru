@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MS PowerPoint Shortcut Keys</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:600,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #e0e7ff 0%, #f0f8ff 100%);
+      color: #222;
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(90deg, #3b5998 60%, #5a7be7 100%);
+      color: #fff;
+      padding: 32px 10px 22px 10px;
+      text-align: center;
+      animation: fadeInDown 1s;
+      box-shadow: 0 4px 16px rgba(59,89,152,0.09);
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-shadow: 1px 2px 6px #2d3e50a1;
+    }
+    header p {
+      font-style: italic;
+      margin: 7px 0 0;
+      font-size: 1.15em;
+      color: #e3e6f3;
+      letter-spacing: 1px;
+    }
+    main {
+      max-width: 1100px;
+      margin: 32px auto 0 auto;
+      background: #fff;
+      padding: 30px 18px 40px 18px;
+      border-radius: 16px;
+      box-shadow: 0 6px 32px rgba(59,89,152,0.10);
+      animation: fadeIn 1.1s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.98);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    h2 {
+      color: #3b5998;
+      margin-top: 0;
+      border-bottom: 2px solid #e3e6f3;
+      padding-bottom: 7px;
+      font-size: 1.6em;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .search-box {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 18px;
+    }
+    .search-box input {
+      padding: 10px 14px;
+      border: 1.5px solid #b3c6e7;
+      border-radius: 6px;
+      font-size: 1em;
+      outline: none;
+      transition: border 0.2s;
+      width: 270px;
+      background: #f0f8ff;
+    }
+    .search-box input:focus {
+      border-color: #3b5998;
+      background: #e6f0fa;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 1.07em;
+      background: #fff;
+      overflow-x: auto;
+    }
+    th, td {
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+      transition: background 0.2s;
+    }
+    th {
+      background: linear-gradient(90deg, #3b5998 70%, #5a7be7 100%);
+      color: white;
+      font-size: 1.08em;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      letter-spacing: 1px;
+    }
+    tbody tr {
+      transition: background 0.25s, box-shadow 0.2s;
+    }
+    tbody tr:hover {
+      background: #e3ecff;
+      box-shadow: 0 1px 10px #b3c6e7a1;
+      transform: scale(1.01);
+    }
+    .back-btn {
+      display: inline-block;
+      margin: 36px auto 0 auto;
+      background: linear-gradient(90deg, #3b5998 70%, #5a7be7 100%);
+      color: white;
+      padding: 13px 36px;
+      text-decoration: none;
+      border-radius: 7px;
+      font-size: 1.1em;
+      font-weight: 600;
+      box-shadow: 0 4px 16px #b3c6e7a1;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+      text-align: center;
+      display: block;
+      animation: fadeInUp 1.2s;
+    }
+    .back-btn:hover {
+      background: linear-gradient(90deg, #5a7be7 70%, #3b5998 100%);
+      transform: scale(1.04);
+      color: #fff;
+      letter-spacing: 1px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 22px;
+      font-size: 1em;
+      color: #7b7b7b;
+      letter-spacing: 1px;
+      background: transparent;
+      animation: fadeIn 2s;
+    }
+    @media (max-width: 700px) {
+      main {
+        padding: 10px 2vw 30px 2vw;
+      }
+      table, th, td {
+        font-size: 0.97em;
+      }
+      .search-box input {
+        width: 100%;
+      }
+    }
+  </style>
+  <script>
+  // Disable right-click, copy, cut, printscreen, and view-source
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 'U' || e.key === 'a' || e.key === 'A')) ||
+      (e.key === 'PrintScreen') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'J') ||
+      (e.ctrlKey && e.key === 's')
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
+  document.addEventListener('selectstart', function(e){ e.preventDefault(); });
+</script>
+</head>
+<body>
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>An ISO Certified Institution</p>
+  </header>
+  <main>
+    <h2>MS PowerPoint Shortcut Keys with Uses</h2>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search shortcut or use...">
+    </div>
+    <div style="overflow-x:auto;">
+    <table id="shortcutTable">
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th>Shortcut Key</th>
+          <th>Use</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sample 50+ entries. Copy-paste pattern for 500+ -->
+        <tbody>
+<tr><td>1</td><td>Ctrl + N</td><td>Create a new presentation</td></tr>
+<tr><td>2</td><td>Ctrl + O</td><td>Open an existing presentation</td></tr>
+<tr><td>3</td><td>Ctrl + S</td><td>Save the presentation</td></tr>
+<tr><td>4</td><td>Ctrl + P</td><td>Print the presentation</td></tr>
+<tr><td>5</td><td>Ctrl + Q</td><td>Save and close a presentation</td></tr>
+<tr><td>6</td><td>Ctrl + W</td><td>Close the presentation</td></tr>
+<tr><td>7</td><td>Ctrl + F4</td><td>Close the window</td></tr>
+<tr><td>8</td><td>Ctrl + Z</td><td>Undo the last action</td></tr>
+<tr><td>9</td><td>Ctrl + Y</td><td>Redo the last undone action</td></tr>
+<tr><td>10</td><td>Ctrl + F2</td><td>Print Preview View</td></tr>
+<tr><td>11</td><td>F1</td><td>Display Help menu</td></tr>
+<tr><td>12</td><td>Alt + Q</td><td>“Tell Me” search box</td></tr>
+<tr><td>13</td><td>F7</td><td>Spell Check</td></tr>
+<tr><td>14</td><td>Alt or F10</td><td>Turn key tips on or off</td></tr>
+<tr><td>15</td><td>Ctrl + F1</td><td>Show/hide ribbon</td></tr>
+<tr><td>16</td><td>Ctrl + F</td><td>Find</td></tr>
+<tr><td>17</td><td>Ctrl + H</td><td>Replace</td></tr>
+<tr><td>18</td><td>Ctrl + Tab</td><td>Switch between open presentations</td></tr>
+<tr><td>19</td><td>Ctrl + Shift + Tab</td><td>Switch to previous tab</td></tr>
+<tr><td>20</td><td>Alt + F</td><td>Open File tab</td></tr>
+<tr><td>21</td><td>Alt + H</td><td>Go to Home tab</td></tr>
+<tr><td>22</td><td>Alt + N</td><td>Go to Insert tab</td></tr>
+<tr><td>23</td><td>Alt + G</td><td>Go to Design tab</td></tr>
+<tr><td>24</td><td>Alt + K</td><td>Go to Transitions tab</td></tr>
+<tr><td>25</td><td>Alt + A</td><td>Go to Animations tab</td></tr>
+<tr><td>26</td><td>Alt + S</td><td>Go to Slide Show tab</td></tr>
+<tr><td>27</td><td>Alt + R</td><td>Go to Review tab</td></tr>
+<tr><td>28</td><td>Alt + W</td><td>Go to View tab</td></tr>
+<tr><td>29</td><td>Alt + X</td><td>Go to Add-ins tab</td></tr>
+<tr><td>30</td><td>Alt + Y</td><td>Go to Help tab</td></tr>
+<tr><td>31</td><td>Ctrl + M</td><td>Insert a new slide</td></tr>
+<tr><td>32</td><td>Ctrl + Shift + D</td><td>Duplicate selected slide</td></tr>
+<tr><td>33</td><td>Ctrl + D</td><td>Duplicate selected object</td></tr>
+<tr><td>34</td><td>Ctrl + Shift + N</td><td>Normal view</td></tr>
+<tr><td>35</td><td>Ctrl + Shift + Tab</td><td>Switch to previous tab</td></tr>
+<tr><td>36</td><td>Ctrl + Tab</td><td>Switch to next tab</td></tr>
+<tr><td>37</td><td>Ctrl + Shift + F</td><td>Change font</td></tr>
+<tr><td>38</td><td>Ctrl + Shift + L</td><td>Apply bullet list</td></tr>
+<tr><td>39</td><td>Ctrl + Shift + &gt;</td><td>Increase font size</td></tr>
+<tr><td>40</td><td>Ctrl + Shift + &lt;</td><td>Decrease font size</td></tr>
+<tr><td>41</td><td>Ctrl + B</td><td>Bold selected text</td></tr>
+<tr><td>42</td><td>Ctrl + I</td><td>Italicize selected text</td></tr>
+<tr><td>43</td><td>Ctrl + U</td><td>Underline selected text</td></tr>
+<tr><td>44</td><td>Ctrl + T</td><td>Open Font dialog box</td></tr>
+<tr><td>45</td><td>Ctrl + Shift + C</td><td>Copy formatting</td></tr>
+<tr><td>46</td><td>Ctrl + Shift + V</td><td>Paste formatting</td></tr>
+<tr><td>47</td><td>Ctrl + X</td><td>Cut selected text/object</td></tr>
+<tr><td>48</td><td>Ctrl + C</td><td>Copy selected text/object</td></tr>
+<tr><td>49</td><td>Ctrl + V</td><td>Paste cut/copied text/object</td></tr>
+<tr><td>50</td><td>Ctrl + A</td><td>Select all elements</td></tr>
+<tr><td>51</td><td>Ctrl + G</td><td>Group selected objects</td></tr>
+<tr><td>52</td><td>Ctrl + Shift + G</td><td>Ungroup selected objects</td></tr>
+<tr><td>53</td><td>Ctrl + L</td><td>Left align paragraph</td></tr>
+<tr><td>54</td><td>Ctrl + E</td><td>Center align paragraph</td></tr>
+<tr><td>55</td><td>Ctrl + R</td><td>Right align paragraph</td></tr>
+<tr><td>56</td><td>Ctrl + J</td><td>Justify paragraph</td></tr>
+<tr><td>57</td><td>Alt + N, P</td><td>Insert picture</td></tr>
+<tr><td>58</td><td>Alt + N, S, H</td><td>Insert shape</td></tr>
+<tr><td>59</td><td>Alt + N, X</td><td>Insert text box</td></tr>
+<tr><td>60</td><td>Alt + N, T</td><td>Insert SmartArt</td></tr>
+<tr><td>61</td><td>Alt + N, C</td><td>Insert Chart</td></tr>
+<tr><td>62</td><td>Alt + N, W</td><td>Insert WordArt</td></tr>
+<tr><td>63</td><td>Alt + N, Q</td><td>Insert Equation</td></tr>
+<tr><td>64</td><td>Alt + N, D</td><td>Insert Date & Time</td></tr>
+<tr><td>65</td><td>Alt + N, H</td><td>Insert Header & Footer</td></tr>
+<tr><td>66</td><td>Ctrl + K</td><td>Insert hyperlink</td></tr>
+<tr><td>67</td><td>Ctrl + Alt + M</td><td>Insert new comment</td></tr>
+<tr><td>68</td><td>Ctrl + Shift + Z</td><td>Redo last action</td></tr>
+<tr><td>69</td><td>Ctrl + Shift + S</td><td>Save As</td></tr>
+<tr><td>70</td><td>Ctrl + Shift + F3</td><td>Insert AutoText</td></tr>
+<tr><td>71</td><td>Ctrl + Shift + F12</td><td>Print</td></tr>
+<tr><td>72</td><td>Ctrl + Shift + Spacebar</td><td>Non-breaking space</td></tr>
+<tr><td>73</td><td>Ctrl + Shift + Hyphen</td><td>Non-breaking hyphen</td></tr>
+<tr><td>74</td><td>Ctrl + Shift + Plus (+)</td><td>Superscript</td></tr>
+<tr><td>75</td><td>Ctrl + Equal (=)</td><td>Subscript</td></tr>
+<tr><td>76</td><td>Ctrl + Shift + &gt; + Enter</td><td>Grow font size and new line</td></tr>
+<tr><td>77</td><td>Ctrl + Shift + &lt; + Enter</td><td>Shrink font size and new line</td></tr>
+<tr><td>78</td><td>Alt + Shift + Right Arrow</td><td>Demote paragraph</td></tr>
+<tr><td>79</td><td>Alt + Shift + Left Arrow</td><td>Promote paragraph</td></tr>
+<tr><td>80</td><td>Alt + Shift + Up Arrow</td><td>Move paragraph up</td></tr>
+<tr><td>81</td><td>Alt + Shift + Down Arrow</td><td>Move paragraph down</td></tr>
+<tr><td>82</td><td>Ctrl + Enter</td><td>Insert new slide while editing text</td></tr>
+<tr><td>83</td><td>Ctrl + Shift + D</td><td>Duplicate selected slide</td></tr>
+<tr><td>84</td><td>Alt + F5</td><td>Presenter view</td></tr>
+<tr><td>85</td><td>Ctrl + Shift + Up Arrow</td><td>Move selected slide up</td></tr>
+<tr><td>86</td><td>Ctrl + Shift + Down Arrow</td><td>Move selected slide down</td></tr>
+<tr><td>87</td><td>Alt + F10</td><td>Activate Key Tips</td></tr>
+<tr><td>88</td><td>Alt + F8</td><td>Open Macro dialog</td></tr>
+<tr><td>89</td><td>Alt + Shift + F10</td><td>Display menu/message for smart tag</td></tr>
+<tr><td>90</td><td>Alt + Shift + D</td><td>Insert current date</td></tr>
+<tr><td>91</td><td>Alt + Shift + T</td><td>Insert current time</td></tr>
+<tr><td>92</td><td>Ctrl + Alt + V</td><td>Paste Special dialog</td></tr>
+<tr><td>93</td><td>Ctrl + Alt + 1</td><td>Apply Heading 1 style</td></tr>
+<tr><td>94</td><td>Ctrl + Alt + 2</td><td>Apply Heading 2 style</td></tr>
+<tr><td>95</td><td>Ctrl + Alt + 3</td><td>Apply Heading 3 style</td></tr>
+<tr><td>96</td><td>Ctrl + Shift + C</td><td>Copy formatting</td></tr>
+<tr><td>97</td><td>Ctrl + Shift + V</td><td>Paste formatting</td></tr>
+<tr><td>98</td><td>Ctrl + Shift + F</td><td>Change font</td></tr>
+<tr><td>99</td><td>Ctrl + Shift + L</td><td>Apply bullet list</td></tr>
+<tr><td>100</td><td>Ctrl + Shift + &gt;</td><td>Increase font size</td></tr>          
+</tbody>
+    <!-- Add more rows here for up to 500+ shortcuts -->
+      </tbody>
+    </table>
+    </div>
+    <a class="back-btn" href="ms_Pshortcut_2.html">Goto Next Page</a>
+    <a class="back-btn" href="../ms_office.html">Back</a>
+  </main>
+  <footer>© Pawan Soni</footer>
+  <script>
+    // Table search/filter function
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+      const filter = this.value.toUpperCase();
+      const rows = document.querySelectorAll('#shortcutTable tbody tr');
+      rows.forEach(row => {
+        const key = row.cells[1].textContent.toUpperCase();
+        const use = row.cells[2].textContent.toUpperCase();
+        if (key.indexOf(filter) > -1 || use.indexOf(filter) > -1) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+  </html>
+          
