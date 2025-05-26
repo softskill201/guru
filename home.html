@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chitragupt Academy - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --main-blue: #2980b9;
+      --accent-blue: #6dd5fa;
+      --glass-bg: rgba(255,255,255,0.75);
+      --glass-border: rgba(52,152,219,0.18);
+      --shadow: 0 8px 32px 0 rgba(31,38,135,0.20);
+      --glow: 0 0 8px #6dd5fa, 0 0 16px #2980b9;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(120deg, #e0eafc 0%, #cfdef3 100%);
+      overflow-x: hidden;
+      user-select: none;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(90deg, #2980b9 60%, #0d5772 100%);
+      padding: 18px 32px;
+      border-bottom: 4px solid #fff;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 2;
+    }
+    .logo-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    .logo-box img {
+      height: 90px;
+      border-radius: 60%;
+      box-shadow: 0 4px 16px #8ee0fdc0;
+      border: 3px solid #ffe3e3;
+      background: #fff;
+      animation: logoSpin 5s linear infinite;
+    }
+    @keyframes logoSpin {
+      0% { transform: rotate(-6deg);}
+      50% { transform: rotate(10deg);}
+      100% { transform: rotate(-6deg);}
+    }
+    .academy-info {
+      text-align: right;
+      color: #fff;
+      text-shadow: 0 2px 8px #2980b966;
+    }
+    .academy-info h1 {
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      font-weight: 900;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(90deg, #fff, #00b6f8 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .academy-info p {
+      font-size: 1.1rem;
+      color: #f8f8f8;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .welcome-time {
+      margin-top: 6px;
+      font-size: 1rem;
+      color: #e0eafc;
+      font-weight: 700;
+      background: rgba(255,255,255,0.08);
+      padding: 2px 10px;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 2px 6px #2980b944;
+    }
+    nav {
+      background: rgba(255,255,255,0.6);
+      box-shadow: 0 4px 16px #6dd5fa33;
+      padding: 14px 0 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+    .nav-button {
+      background: linear-gradient(90deg, #36b2df 60%, #2980b9 100%);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 2px 8px #6dd5fa55;
+      border: 2px solid transparent;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .nav-button:hover, .nav-button.active {
+      background: #fff;
+      color: var(--main-blue);
+      border: 2px solid var(--main-blue);
+      box-shadow: var(--glow);
+      transform: translateY(-2px) scale(1.04);
+    }
+    .nav-button.logout {
+      background: linear-gradient(90deg, #e74c3c 60%, #c0392b 100%);
+      color: #fff;
+      border: none;
+    }
+    .nav-button.logout:hover {
+      background: #fff;
+      color: #e74c3c;
+      border: 2px solid #e74c3c;
+      box-shadow: 0 0 8px #e74c3c99;
+    }
+    .content {
+      max-width: 1100px;
+      margin: 40px auto 0 auto;
+      padding: 28px 24px 20px 24px;
+      background: var(--glass-bg);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      animation: fadeIn 1.4s cubic-bezier(.6,0,.4,1);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .content h2 {
+      color: var(--main-blue);
+      font-size: 2rem;
+      margin-bottom: 18px;
+      letter-spacing: 1px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .content h2 i {
+      color: var(--accent-blue);
+      font-size: 1.3em;
+      animation: bounce 1.2s infinite alternate;
+    }
+    @keyframes bounce {
+      from { transform: translateY(0);}
+      to { transform: translateY(-8px);}
+    }
+    .courses-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+    }
+    .course-card {
+      background: rgba(255,255,255,0.93);
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #2980b922;
+      border: 1.5px solid #6dd5fa44;
+      padding: 24px 16px 16px 16px;
+      width: 270px;
+      min-height: 170px;
+      position: relative;
+      overflow: hidden;
+      transition: 0.25s;
+      cursor: all-scroll;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      animation: fadeIn 1.2s;
+    }
+    .course-card:hover {
+      box-shadow: 0 2px 24px #6dd5fa88, 0 0 12px #2980b966;
+      transform: translateY(-6px) scale(1.03);
+      border-color: #2980b9;
+      background: #f4fbff;
+    }
+    .course-icon {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      color: var(--main-blue);
+      filter: drop-shadow(0 2px 8px #6dd5fa55);
+      animation: glowIcon 1.6s infinite alternate;
+    }
+    @keyframes glowIcon {
+      from { filter: drop-shadow(0 2px 8px #6dd5fa55);}
+      to { filter: drop-shadow(0 2px 16px #6dd5fa);}
+    }
+    .course-title {
+      font-size: 1.13em;
+      font-weight: 600;
+      color: #222;
+      margin-bottom: 6px;
+    }
+    .course-desc {
+      font-size: 0.97em;
+      color: #555;
+      line-height: 1.6;
+    }
+    /* Gallery */
+    .gallery-title {
+      color: var(--main-blue);
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 40px 0 18px 0;
+      text-align: center;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 0 auto 10px;
+      max-width: 1100px;
+    }
+    .gallery img {
+      width: 220px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 4px 18px #2980b944;
+      border: 2px solid #fff;
+      transition: 0.3s;
+      background: #fff;
+      filter: grayscale(0.08);
+    }
+    .gallery img:hover {
+      transform: scale(1.07) rotate(-2deg);
+      box-shadow: 0 8px 32px #6dd5fa99;
+      filter: grayscale(0);
+      border-color: #6dd5fa;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 24px 0 16px 0;
+      font-size: 1rem;
+      color: #2980b9;
+      background: linear-gradient(90deg, #e0eafc 60%, #cfdef3 100%);
+      margin-top: 40px;
+      letter-spacing: 1px;
+      box-shadow: 0 -2px 12px #2980b922;
+      font-weight: 600;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .courses-grid { gap: 18px;}
+      .course-card { width: 90vw; max-width: 350px;}
+      .gallery img { width: 90vw; max-width: 320px;}
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px 6vw;
+      }
+      .academy-info h1 { font-size: 1.3rem;}
+      .academy-info p { font-size: 1rem;}
+      .content { padding: 14px 4vw;}
+      .gallery img { height: 110px;}
+    }
+  </style>
+  <script>
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", function(e) {
+      if (
+        (e.ctrlKey && ['u','U','c','C','s','S'].includes(e.key)) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    window.onload = function () {
+      const studentName = localStorage.getItem("studentName");
+      if (studentName) {
+        document.getElementById("student-name").innerText = studentName;
+      } else {
+        window.location.href = "index.html";
+      }
+      updateDateTime();
+      setInterval(updateDateTime, 1000);
+    };
+
+    function updateDateTime() {
+      const now = new Date();
+      const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+      const dateStr = now.toLocaleDateString('en-IN', options);
+      const timeStr = now.toLocaleTimeString();
+      document.getElementById("current-time").innerText = `${dateStr} | ${timeStr}`;
+    }
+
+    function logoutStudent() {
+      localStorage.removeItem("student_name");
+      window.location.href = "index.html";
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo-box">
+      <img src="Logo/logo.jpg" alt="Logo">
+      <span style="font-size:1.6rem;color:#fff;font-weight:700;letter-spacing:1px;text-shadow:0 2px 8px #2980b966;">
+        <i class="fas fa-laptop-code"></i>
+      </span>
+    </div>
+    <div class="academy-info">
+      <h1>CHITRAGUPT ACADEMY</h1>
+      <p>AN ISO CERTIFIED INSTITUTION</p>
+      <div class="welcome-time">
+        Welcome, <span id="student-name"></span><br>
+        <span id="current-time"></span>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <a href="home.html">
+      <button class="nav-button active"><i class="fas fa-home"></i> Home</button>
+    </a>
+    <a href="Notes/notes.html">
+      <button class="nav-button"><i class="fas fa-book"></i> Study Materials</button>
+    </a>
+    <a href="#">
+      <button class="nav-button"><i class="fas fa-tasks"></i> Assignments</button>
+    </a>
+    <a href="#">
+      <button class="nav-button"><i class="fas fa-poll"></i> Results</button>
+    </a>
+    <a href="syllabus/syllabus.html">
+      <button class="nav-button"><i class="fas fa-file-alt"></i> Syllabus</button>
+    </a>
+    <a href="#">
+      <button class="nav-button"><i class="fas fa-info-circle"></i> About</button>
+    </a>
+    <button class="nav-button logout" onclick="logoutStudent()">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+  </nav>
+  
+
+  <div class="content">
+    <h2><i class="fas fa-graduation-cap"></i> Our Courses</h2>
+    <div class="courses-grid">
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-desktop"></i></span>
+        <span class="course-title">Basic Computer Course</span>
+        <span class="course-desc">Parts, Accessories, Notepad, MS Office Basics, File Handling, MCQ exam & Certificate.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-laptop"></i></span>
+        <span class="course-title">Advanced Computer Course</span>
+        <span class="course-desc">Word, Excel, PowerPoint, Access, Outlook - all advanced modules.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-keyboard"></i></span>
+        <span class="course-title">CPCT Preparation</span>
+        <span class="course-desc">Hindi/English Typing, MCQ Tests, Key Tips, CPCT Topics, Practice Sessions.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-globe"></i></span>
+        <span class="course-title">Internet & Email</span>
+        <span class="course-desc">Internet Browsing, Email Handling, Online Safety & Etiquette.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-calculator"></i></span>
+        <span class="course-title">Tally with GST</span>
+        <span class="course-desc">Accounting Software Basics, GST Implementation, Practical Training.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-paint-brush"></i></span>
+        <span class="course-title">Graphic Design</span>
+        <span class="course-desc">Photoshop, CorelDRAW, Creative Projects, Portfolio Building.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-chart-bar"></i></span>
+        <span class="course-title">MS Power BI</span>
+        <span class="course-desc">Dashboards, Data Analysis, Large Data Management, Visualization.</span>
+      </div>
+      <div class="course-card">
+        <span class="course-icon"><i class="fas fa-code"></i></span>
+        <span class="course-title">Web Designing</span>
+        <span class="course-desc">Web Layouts, Responsive Pages, HTML/CSS/JS, Live Projects.</span>
+      </div>
+    <div class="course-card">
+  <span class="course-icon"><i class="fas fa-bolt"></i></span>
+  <span class="course-title">Competitive Exams Computer Materials</span>
+  <span class="course-desc">
+    Comprehensive MCQs, theory notes, and practice sets for all computer-related competitive exams and previous year questions.
+  </span>
+</div>
+    </div>
+  </div>
+
+  <div class="gallery-title">
+    <i class="fas fa-images"></i> Academy Gallery
+  </div>
+  <div class="gallery">
+    <img src="https://www.shutterstock.com/image-photo/male-teacher-using-interactive-whiteboard-260nw-2337906043.jpg" alt="classroom1">
+    <img src="https://www.21kschool.com/ae/wp-content/uploads/sites/10/2024/08/What-is-Computer.png" alt="computers">
+    <img src="https://static.vecteezy.com/system/resources/previews/001/937/754/non_2x/online-education-application-learning-worldwide-on-computer-mobile-website-background-social-distance-concept-the-classroom-training-course-library-illustration-flat-vector.jpg" alt="training">
+    <img src="https://img.freepik.com/free-photo/young-man-computer-classroom_23-2147654041.jpg" alt="students">
+    <img src="https://img.freepik.com/free-photo/teacher-helping-his-student-computer-class_23-2147654047.jpg" alt="teaching">
+  </div>
+
+  <footer>
+    &copy; Creator - Pawan Soni | Powered by Chitragupt Academy
+  </footer>
+</body>
+</html>
