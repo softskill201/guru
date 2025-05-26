@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computer Basic Parts - Stylish Cards</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', 'Orbitron', Arial, sans-serif;
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: rgba(20, 20, 20, 0.85);
+    padding: 2.5rem 1rem 1.2rem;
+    text-align: center;
+    font-size: 2.7rem;
+    font-family: 'Orbitron', 'Poppins', sans-serif;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    user-select: none;
+    color: #00e0ff;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  header .fa-desktop {
+    font-size: 2.3rem;
+    margin-right: 14px;
+    color: #00e0ff;
+    animation: bounce 1.2s infinite alternate;
+    vertical-align: middle;
+  }
+
+  @keyframes bounce {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-12px);}
+  }
+
+  main {
+    flex-grow: 1;
+    padding: 2.5rem 1rem 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Make the link cover the card and remove default styles */
+  .card-link {
+    text-decoration: none;
+    display: block;
+    min-width: 210px;
+    min-height: 110px;
+    border-radius: 18px;
+    transition: box-shadow 0.3s, border 0.3s;
+  }
+
+  .part-card {
+    background: rgba(30, 40, 60, 0.93);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25), 0 2px 8px rgba(0,224,255,0.09);
+    padding: 1.7rem 1.1rem 1.2rem;
+    min-width: 210px;
+    min-height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.27s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s;
+    position: relative;
+    cursor: pointer;
+    border: 1.5px solid #00e0ff33;
+    z-index: 1;
+  }
+  .card-link:hover .part-card,
+  .card-link:focus .part-card {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 12px 36px 0 #00e0ff44, 0 2px 8px #00e0ff44;
+    border: 2px solid #00e0ff;
+  }
+  .part-icon {
+    font-size: 2.1rem;
+    color: #00e0ff;
+    margin-bottom: 0.7rem;
+    filter: drop-shadow(0 0 8px #00e0ff88);
+    transition: color 0.2s;
+  }
+  .card-link:hover .part-icon,
+  .card-link:focus .part-icon {
+    color: #fff;
+    filter: drop-shadow(0 0 16px #00e0ff);
+  }
+  .part-label {
+    font-size: 1.13rem;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #00e0ff44;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0.2rem;
+  }
+
+  footer {
+    background: rgba(20, 20, 20, 0.85);
+    padding: 1.2rem 1rem;
+    text-align: center;
+    font-size: 1.12rem;
+    font-family: 'Orbitron', 'Poppins', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    user-select: none;
+    color: #00e0ff;
+    box-shadow: 0 -4px 18px rgba(0,0,0,0.3);
+    border-top: 1.5px solid #00e0ff33;
+  }
+
+  /* Responsive */
+  @media (max-width: 700px) {
+    main {
+      gap: 1.1rem;
+      padding: 1.2rem 0.3rem 2.5rem;
+    }
+    .part-card,
+    .card-link {
+      min-width: 140px;
+      padding: 1.1rem 0.4rem 0.7rem;
+    }
+    header {
+      font-size: 1.5rem;
+      padding: 1.2rem 0.5rem 0.7rem;
+    }
+    .part-label {
+      font-size: 0.97rem;
+    }
+  }
+  .back-button {
+      display: block;
+      margin: 50px auto 10px;
+      background: linear-gradient(90deg, #09135e, #0a1869);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 5px 14px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s;
+      text-align: center;
+      width: max-content;
+    }
+    .back-button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #5340ff, #00fdfd);
+    }
+    /* Disable selection and copying */
+  body, .back-button, .screenshot-container, .lock-overlay {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+  }
+
+  @media print {
+    html, body { display: none !important; }
+  }
+</style>
+<script>
+  // Disable right-click and keyboard shortcuts to lock content
+  document.addEventListener('contextmenu', e => e.preventDefault());
+  document.addEventListener('copy', e => e.preventDefault());
+  document.addEventListener('cut', e => e.preventDefault());
+  document.addEventListener('paste', e => e.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (
+      e.key === 'PrintScreen' ||
+      (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'c')) ||
+      (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') ||
+      e.key === 'F12'
+    ) {
+      e.preventDefault();
+    }
+  });
+  window.addEventListener("keyup", function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert("Screenshot is locked on this page.");
+    }
+  });
+</script>
+</head>
+<body>
+  <footer>CHITRAGUPT ACADEMY - AN ISO CERTIFIED INSTITUTION</footer>
+<header>
+  <i class="fa-solid fa-desktop"></i>
+  Computer Basic Parts
+</header>
+<main>
+  <a href="cpu.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-microchip"></i></span><span class="part-label">CPU</span></div></a>
+  <a href="monitor.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-display"></i></span><span class="part-label">Monitor</span></div></a>
+  <a href="keyboard.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-keyboard"></i></span><span class="part-label">Keyboard</span></div></a>
+  <a href="mouse.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-computer-mouse"></i></span><span class="part-label">Mouse</span></div></a>
+  <a href="printer.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-print"></i></span><span class="part-label">Printer</span></div></a>
+  <a href="storage.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-memory"></i></span><span class="part-label">Storage</span></div></a>
+  <a href="speaker.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-volume-high"></i></span><span class="part-label">Speakers</span></div></a>
+  <a href="network.html" class="card-link"><div class="part-card"><span class="part-icon"><i class="fa-solid fa-network-wired"></i></span><span class="part-label">Network</span></div></a>
+</main>
+<br>
+ <a href="javascript:history.back()" class="back-btn">Back</a>
+  <footer>&copy; Pawan Soni</footer>
+<br><br><br>
+</body>
+</html>
