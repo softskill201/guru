@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Monitor - Detailed Notes | Chitragupt Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #43cea2, #185a9d 100%);
+        color: #222;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0 0 0;
+        user-select: none;
+    }
+    .academy-header {
+        width: 100vw;
+        background: rgba(24,90,157,0.97);
+        padding: 1.2em 0 0.5em 0;
+        text-align: center;
+        box-shadow: 0 4px 24px #185a9d44;
+        margin-bottom: 0.3em;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        animation: fadeInDown 1.1s;
+    }
+    .academy-header h1 {
+        font-size: 2.1em;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 2px;
+        margin-bottom: 0.2em;
+        text-shadow: 0 2px 18px #43cea288;
+        animation: glow 2s infinite alternate;
+    }
+    .academy-header h2 {
+        font-size: 1.02em;
+        color: #ffe066;
+        letter-spacing: 1.5px;
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 0.4em;
+        text-shadow: 0 1px 8px #fff7;
+    }
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-50px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes glow {
+        from { text-shadow: 0 0 8px #fff, 0 0 16px #185a9d; }
+        to   { text-shadow: 0 0 24px #fff, 0 0 32px #43cea2; }
+    }
+    header {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #fff;
+        animation: fadeInDown 1.1s;
+    }
+    header h1 {
+        font-weight: 700;
+        font-size: 2.1rem;
+        letter-spacing: 2px;
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        animation: glow 2s infinite alternate;
+        margin-bottom: 0.2em;
+    }
+    header p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-top: 0.4rem;
+        color: #e4f9f5;
+        letter-spacing: 1px;
+        animation: fadeIn 2s;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0;}
+        to { opacity: 1;}
+    }
+    main {
+        max-width: 1100px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.8rem;
+        animation: fadeInUp 1.2s;
+    }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    .card {
+        background: #ffffffee;
+        border-radius: 15px;
+        box-shadow: 0 8px 22px rgba(0, 0, 0, 0.17);
+        padding: 2rem 2.2rem;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.35s cubic-bezier(.17,.67,.83,.67), box-shadow 0.35s cubic-bezier(.17,.67,.83,.67);
+        opacity: 0;
+        animation: cardFadeIn 1.1s forwards;
+    }
+    .card:nth-child(1) { animation-delay: .2s;}
+    .card:nth-child(2) { animation-delay: .4s;}
+    .card:nth-child(3) { animation-delay: .6s;}
+    .card:nth-child(4) { animation-delay: .8s;}
+    .card:nth-child(5) { animation-delay: 1s;}
+    .card:nth-child(6) { animation-delay: 1.2s;}
+    .card:nth-child(7) { animation-delay: 1.4s;}
+    .card:nth-child(8) { animation-delay: 1.6s;}
+    @keyframes cardFadeIn {
+        from { opacity: 0; transform: translateY(40px);}
+        to { opacity: 1; transform: translateY(0);}
+    }
+    .card:hover {
+        transform: translateY(-13px) scale(1.025) rotateZ(-1deg);
+        box-shadow: 0 18px 44px rgba(67,206,162,0.22);
+        background: #eafaf1;
+    }
+    .card h2 {
+        margin-top: 0;
+        margin-bottom: 1rem;
+        color: #185a9d;
+        font-size: 1.7rem;
+        font-weight: 700;
+        border-bottom: 3px solid #43cea2;
+        padding-bottom: 0.4rem;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+    }
+    .card:hover h2 {
+        color: #43cea2;
+    }
+    .card p {
+        font-size: 1.07rem;
+        line-height: 1.6;
+        color: #333;
+    }
+    .card ul {
+        margin: 0.5rem 0 0 1.2rem;
+        color: #444;
+    }
+    .card ul li {
+        margin-bottom: 0.6rem;
+        transition: color 0.2s;
+    }
+    .card:hover ul li {
+        color: #185a9d;
+    }
+    .monitor-img {
+        width: 100%;
+        max-width: 220px;
+        display: block;
+        margin: 0 auto 1.5rem auto;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px #43cea2aa;
+        border: 3px solid #185a9d;
+        background: #fff;
+    }
+    .faq-list {
+        margin: 0.5rem 0 0 0.5rem;
+        padding: 0;
+        list-style: none;
+        font-size: 1.06em;
+    }
+    .faq-list li {
+        margin-bottom: 1.1em;
+        padding-left: 0.5em;
+        border-left: 4px solid #43cea2;
+        background: #eafaf1;
+        border-radius: 8px;
+        padding-top: 0.7em;
+        padding-bottom: 0.7em;
+        transition: border-color 0.2s;
+    }
+    .faq-list li:hover {
+        border-color: #185a9d;
+        background: #e4f9f5;
+    }
+    .faq-q {
+        font-weight: 700;
+        color: #185a9d;
+        margin-bottom: 0.2em;
+        display: block;
+    }
+    .faq-a {
+        color: #333;
+        margin-left: 0.2em;
+        display: block;
+    }
+    .copyright {
+        width: 100vw;
+        text-align: center;
+        color: #fff;
+        font-size: 1.02em;
+        letter-spacing: 1.3px;
+        margin: 34px auto 0 auto;
+        opacity: 0.7;
+        text-shadow: 0 2px 10px #185a9d99;
+        font-weight: 600;
+        padding-bottom: 14px;
+        user-select: none;
+        pointer-events: none;
+    }
+    .back-btn {
+        display: block;
+        margin: 3.5em auto 0 auto;
+        padding: 13px 38px;
+        background: linear-gradient(90deg, #c8ff00 0%, #43cea2 100%);
+        color: #185a9d;
+        border: none;
+        border-radius: 16px;
+        font-weight: 700;
+        font-size: 1.12em;
+        letter-spacing: 1.5px;
+        box-shadow: 0 8px 32px 0 #185a9d55;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+        outline: none;
+        min-width: 120px;
+        text-align: center;
+    }
+    .back-btn:hover, .back-btn:focus {
+        background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+        color: #fff;
+        transform: scale(1.06);
+        box-shadow: 0 12px 36px 0 #43cea288;
+    }
+    footer {
+        margin-top: 2.5rem;
+        font-size: 0.95rem;
+        color: #ddd;
+        text-align: center;
+        animation: fadeIn 2s;
+        letter-spacing: 1px;
+    }
+    * {
+        user-select: none !important;
+        -webkit-user-select: none !important;
+        -ms-user-select: none !important;
+        -moz-user-select: none !important;
+    }
+    ::selection { background: transparent; }
+    @media(max-width: 400px) {
+        .academy-header h1 { font-size: 1.3rem; }
+        header h1 { font-size: 1.1rem; }
+        .card { padding: 1.5rem 1.2rem; }
+    }
+</style>
+</head>
+<body>
+    <div class="academy-header">
+        <h1>CHITRAGUPT ACADEMY</h1>
+        <h2>AN ISO CERTIFIED INSTITUTE</h2>
+    </div>
+    <main>
+        <section class="card" id="monitor-definition">
+            <h2>What is a Monitor?</h2>
+            <img src="https://cdn.thewirecutter.com/wp-content/media/2024/07/27-inch-monitor-2048px-233796-3x2-1.jpg?auto=webp&quality=75&crop=16:9,smart&width=1024" alt="Monitor" class="monitor-img">
+            <p>
+                A <strong>monitor</strong> is an electronic visual display device that shows output from a computer. It allows users to view text, images, videos, and graphical data processed by the computer.
+            </p>
+        </section>
+        <section class="card" id="monitor-types">
+            <h2>Types of Monitors</h2>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20250401155153536666/types_of_monitors_name_with_images_.webp" alt="Types of Monitors" class="monitor-img">
+            <ul>
+                <li><strong>CRT:</strong> Bulky and heavy, used in older computers.</li>
+                <li><strong>LCD:</strong> Thin, lightweight, energy-efficient.</li>
+                <li><strong>LED:</strong> A type of LCD that uses LEDs for backlighting.</li>
+                <li><strong>OLED:</strong> Uses organic compounds that emit light.</li>
+                <li><strong>Touchscreen:</strong> Allows direct interaction by touch.</li>
+            </ul>
+        </section>
+        <section class="card" id="monitor-parts">
+            <h2>Main Parts of a Monitor</h2>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCkdoy0CQm3_yRCw4lMeUZIITtjITIOdVAIMld6XxjbqsHQ609DvkTL9qGf_7Al5yKihSKQ_baLNGu520VFf4qZBETWosgaf5x2jF0R11pMvxVVBgUQsThNRgt5CQ1MhGOkbvTsIoDJfs/s1600/LCD+Monitor+internal+Board+(by+sikandar+khan).jpg" alt="Monitor Parts" class="monitor-img">
+            <ul>
+                <li><strong>Screen/Panel:</strong> The main display area.</li>
+                <li><strong>Power Supply:</strong> Provides electrical power.</li>
+                <li><strong>Control Buttons:</strong> Adjust settings.</li>
+                <li><strong>Input Ports:</strong> Connects to the computer.</li>
+                <li><strong>Stand:</strong> Holds the monitor upright.</li>
+            </ul>
+        </section>
+        <section class="card" id="monitor-working">
+            <h2>How Does a Monitor Work?</h2>
+            <img src="https://www.livemint.com/lm-img/img/2024/05/03/600x338/10_best_27_inch_monitors_for_pc_1714716602831_1714716616527.jpg" alt="Monitor Working" class="monitor-img">
+            <ul>
+                <li>The graphics card sends video signals to the monitor.</li>
+                <li>The monitor converts these signals into images.</li>
+                <li>Each image is made up of tiny dots called <b>pixels</b>.</li>
+                <li>Monitors refresh the image many times per second.</li>
+            </ul>
+        </section>
+        <section class="card" id="monitor-features">
+            <h2>Key Features of Monitors</h2>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVujv3p2pe8bnvGaz6HVwB80S9qKlltMRKFZq_6Pv_rJrNYX-5HKIu7dkADjAZPHtzCNs&usqp=CAU" alt="Monitor Features" class="monitor-img">
+            <ul>
+                <li><strong>Screen Size:</strong> Measured diagonally in inches.</li>
+                <li><strong>Resolution:</strong> Number of pixels.</li>
+                <li><strong>Aspect Ratio:</strong> Ratio of width to height.</li>
+                <li><strong>Refresh Rate:</strong> Updates per second.</li>
+                <li><strong>Response Time:</strong> How quickly a pixel changes color.</li>
+            </ul>
+        </section>
+        <section class="card" id="monitor-uses">
+            <h2>Uses of Monitor</h2>
+            <img src="https://m.media-amazon.com/images/I/41J+P+LC0RL._AC_UF1000,1000_QL80_.jpg" alt="Uses of Monitor" class="monitor-img">
+            <ul>
+                <li>Viewing and interacting with software applications.</li>
+                <li>Watching videos and playing games.</li>
+                <li>Editing documents and photos.</li>
+                <li>Browsing the internet.</li>
+                <li>Professional tasks like designing and programming.</li>
+            </ul>
+        </section>
+        <section class="card" id="monitor-importance">
+            <h2>Importance of Monitor</h2>
+            <img src="https://pr24x7.com/wp-content/uploads/2020/02/WhatsApp-Image-2020-02-28-at-11.54.59-AM.webp" alt="Importance of Monitor" class="monitor-img">
+            <p>
+                The monitor is the main output device of a computer, providing a visual interface for users to interact with the system.
+            </p>
+        </section>
+        <section class="card" id="monitor-faq">
+            <h2>Frequently Asked Questions (FAQs)</h2>
+            <ul class="faq-list">
+                <li>
+                    <span class="faq-q">Q1. What is the function of a monitor?</span>
+                    <span class="faq-a">A monitor displays the output from a computer, allowing users to see text, images, videos, and interact visually with software.</span>
+                </li>
+                <li>
+                    <span class="faq-q">Q2. What is the difference between LCD and LED monitors?</span>
+                    <span class="faq-a">Both use liquid crystals, but LED monitors use LED backlighting, which offers better brightness, color, and energy efficiency than traditional LCDs.</span>
+                </li>
+                <li>
+                    <span class="faq-q">Q3. What is screen resolution?</span>
+                    <span class="faq-a">Screen resolution is the number of pixels displayed on the screen (e.g., 1920x1080). Higher resolution means sharper, clearer images.</span>
+                </li>
+                <li>
+                    <span class="faq-q">Q4. What is refresh rate?</span>
+                    <span class="faq-a">Refresh rate is how many times per second the monitor updates the image, measured in Hertz (Hz). Higher refresh rates give smoother motion.</span>
+                </li>
+                <li>
+                    <span class="faq-q">Q5. What is a touchscreen monitor?</span>
+                    <span class="faq-a">A touchscreen monitor allows users to interact directly with the display using their fingers or a stylus, similar to a smartphone or tablet.</span>
+                </li>
+                <li>
+                    <span class="faq-q">Q6. How can you take care of your monitor?</span>
+                    <span class="faq-a">Keep it clean and dust-free, avoid touching the screen with sharp objects, use a surge protector, and adjust brightness to reduce eye strain.</span>
+                </li>
+                <li>
+                    <span class="faq-q">Q7. What is the importance of aspect ratio?</span>
+                    <span class="faq-a">Aspect ratio is the ratio of width to height of the screen. Common ratios are 16:9 (widescreen) and 4:3 (older monitors). It affects how images and videos are displayed.</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <a href="javascript:history.back()" class="back-btn">Back</a>
+    <div class="copyright">
+        © Pawan Soni
+    </div>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Detailed Notes on Speaker - Stylish & Attractive</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff512f, #dd2476 100%);
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0 0 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+  }
+  .academy-header {
+    width: 100vw;
+    background: rgba(221,36,118,0.93);
+    padding: 1.2em 0 0.5em 0;
+    text-align: center;
+    box-shadow: 0 4px 24px #dd247644;
+    margin-bottom: 0.3em;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    animation: fadeInDown 1.1s;
+  }
+  .academy-header h1 {
+    font-size: 2.1em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 18px #ff512f88;
+    animation: glow 2s infinite alternate;
+  }
+  .academy-header h2 {
+    font-size: 1.02em;
+    color: #ffd1e3;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    text-shadow: 0 1px 8px #fff7;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 8px #fff, 0 0 16px #ff512f; }
+    to   { text-shadow: 0 0 24px #fff, 0 0 32px #dd2476; }
+  }
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    animation: fadeInDown 1.1s;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 2.1rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    animation: glow 2s infinite alternate;
+    margin-bottom: 0.2em;
+  }
+  header p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 0.4rem;
+    color: #ffe3e3;
+    letter-spacing: 1px;
+    animation: fadeIn 2s;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0;}
+    to { opacity: 1;}
+  }
+  main {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.8rem;
+    animation: fadeInUp 1.2s;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .card {
+    background: #ffffffee;
+    border-radius: 15px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.13);
+    padding: 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(.17,.67,.83,.67), box-shadow 0.35s cubic-bezier(.17,.67,.83,.67);
+    opacity: 0;
+    animation: cardFadeIn 1.1s forwards;
+  }
+  .card:nth-child(1) { animation-delay: .2s;}
+  .card:nth-child(2) { animation-delay: .4s;}
+  .card:nth-child(3) { animation-delay: .6s;}
+  .card:nth-child(4) { animation-delay: .8s;}
+  .card:nth-child(5) { animation-delay: 1s;}
+  .card:nth-child(6) { animation-delay: 1.2s;}
+  .card:nth-child(7) { animation-delay: 1.4s;}
+  .card:nth-child(8) { animation-delay: 1.6s;}
+  .card:nth-child(9) { animation-delay: 1.8s;}
+  @keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .card:hover {
+    transform: translateY(-13px) scale(1.025) rotateZ(-1deg);
+    box-shadow: 0 18px 44px rgba(255,81,47,0.13);
+    background: #fff2f2;
+  }
+  .card h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #ff512f;
+    font-size: 1.7rem;
+    font-weight: 700;
+    border-bottom: 3px solid #dd2476;
+    padding-bottom: 0.4rem;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .card:hover h2 {
+    color: #dd2476;
+  }
+  .card p {
+    font-size: 1.07rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  .card ul {
+    margin: 0.5rem 0 0 1.2rem;
+    color: #444;
+  }
+  .card ul li {
+    margin-bottom: 0.6rem;
+    transition: color 0.2s;
+  }
+  .card:hover ul li {
+    color: #ff512f;
+  }
+  .topic-img {
+    width: 100%;
+    max-width: 210px;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #ff512faa;
+    border: 3px solid #dd2476;
+    background: #fff;
+    animation: imgPop 1.2s;
+  }
+  @keyframes imgPop {
+    from { opacity: 0; transform: scale(0.8);}
+    to { opacity: 1; transform: scale(1);}
+  }
+  .faq-list {
+    margin: 0.5rem 0 0 0.5rem;
+    padding: 0;
+    list-style: none;
+    font-size: 1.06em;
+  }
+  .faq-list li {
+    margin-bottom: 1.1em;
+    padding-left: 0.5em;
+    border-left: 4px solid #ff512f;
+    background: #fff2f2;
+    border-radius: 8px;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    transition: border-color 0.2s;
+  }
+  .faq-list li:hover {
+    border-color: #dd2476;
+    background: #ffe3e3;
+  }
+  .faq-q {
+    font-weight: 700;
+    color: #ff512f;
+    margin-bottom: 0.2em;
+    display: block;
+  }
+  .faq-a {
+    color: #333;
+    margin-left: 0.2em;
+    display: block;
+  }
+  .back-btn {
+    display: block;
+    margin: 3.5em auto 0 auto;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #ff512f 0%, #dd2476 100%);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.12em;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 32px 0 #dd247655;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+    outline: none;
+    min-width: 120px;
+    text-align: center;
+  }
+  .back-btn:hover, .back-btn:focus {
+    background: linear-gradient(90deg, #dd2476 0%, #ff512f 100%);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 12px 36px 0 #ff512f88;
+  }
+  .watermark {
+    width: 100vw;
+    text-align: center;
+    color: #fff;
+    font-size: 1.02em;
+    letter-spacing: 1.3px;
+    margin: 34px auto 0 auto;
+    opacity: 0.7;
+    text-shadow: 0 2px 10px #ff512f99;
+    font-weight: 600;
+    padding-bottom: 14px;
+    user-select: none;
+    pointer-events: none;
+  }
+  footer {
+    margin-top: 2.5rem;
+    font-size: 0.95rem;
+    color: #aaa;
+    text-align: center;
+    animation: fadeIn 2s;
+    letter-spacing: 1px;
+  }
+  * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    -moz-user-select: none !important;
+  }
+  ::selection {
+    background: transparent;
+  }
+  @media(max-width: 400px) {
+    .academy-header h1 { font-size: 1.3rem; }
+    header h1 { font-size: 1.1rem; }
+    .card { padding: 1.5rem 1.2rem; }
+    .back-btn { width: 96vw; font-size: 1em;}
+  }
+</style>
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('copy', event => event.preventDefault());
+  document.addEventListener('cut', event => event.preventDefault());
+  document.addEventListener('paste', event => event.preventDefault());
+  document.addEventListener('dragstart', event => event.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert('Screenshots are disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 'p') {
+      alert('Printing is disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 's') {
+      alert('Saving is disabled on this page.');
+      e.preventDefault();
+    }
+  });
+</script>
+</head>
+<body>
+  <div class="academy-header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <h2>AN ISO CERTIFIED INSTITUTE</h2>
+  </div>
+  <main>
+    <section class="card" id="speaker-definition">
+      <h2>What is a Speaker?</h2>
+      <img src="https://t4.ftcdn.net/jpg/08/77/39/95/360_F_877399520_Fj3K8hSj8FSMQJUCaNuDup3Ep7989RP6.jpg" alt="Speaker Illustration" class="topic-img" draggable="false">
+      <p>
+        A <strong>speaker</strong> is an output device that converts electrical signals into sound, allowing users to hear audio from computers, phones, TVs, and other devices. It uses a vibrating diaphragm or membrane to produce sound waves in response to electric signals.<br>
+        Speakers are essential for listening to music, watching videos, gaming, and audio notifications.
+      </p>
+    </section>
+    <section class="card" id="speaker-types">
+      <h2>Types of Speakers</h2>
+      <img src="https://www.stylelaser.com.my/images/uploads/product/3577/ES_learn-the-basics-about-the-different-types-of-speakers-1.jpg" alt="Types of Speakers" class="topic-img" draggable="false">
+      <ul>
+        <li><strong>Woofers:</strong> Large drivers for low-frequency (bass) sounds.</li>
+        <li><strong>Tweeters:</strong> Small drivers for high-frequency (treble) sounds.</li>
+        <li><strong>Midrange:</strong> Drivers for middle-frequency sounds (300 Hz to 5,000 Hz).</li>
+        <li><strong>Full-range Speakers:</strong> Designed to cover a wide range of frequencies.</li>
+        <li><strong>Subwoofers:</strong> Specialized for very low frequencies (deep bass).</li>
+        <li><strong>Piezoelectric Speakers:</strong> Use piezoelectric materials for sound, often in buzzers or alarms.</li>
+        <li><strong>Portable/Bluetooth Speakers:</strong> Wireless, battery-powered for mobile use.</li>
+        <li><strong>Smart Speakers:</strong> Integrated with voice assistants (e.g., Alexa, Google Home).</li>
+      </ul>
+    </section>
+    <section class="card" id="speaker-working">
+      <h2>How Does a Speaker Work?</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAikGBZasIiaUQI5Rgn3eFLRf1zVR1dItkfw&s" alt="Speaker Working" class="topic-img" draggable="false">
+      <ul>
+        <li>Electrical audio signal is sent from the device to the speaker.</li>
+        <li>The signal passes through an amplifier (built-in or external).</li>
+        <li>The amplifier boosts the signal and sends it to the driver.</li>
+        <li>The driver’s diaphragm vibrates, creating sound waves in the air.</li>
+        <li>Different drivers (woofer, tweeter, midrange) handle different frequency ranges for clear sound.</li>
+      </ul>
+    </section>
+    <section class="card" id="speaker-specs">
+      <h2>Key Specifications of Speakers</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHWwZUrNYfpMFDmboAHVxY8w-MKNGoyd0eWw&s" alt="Speaker Specs" class="topic-img" draggable="false">
+      <ul>
+        <li><strong>Sound Pressure Level (SPL):</strong> Loudness, measured in decibels (dB).</li>
+        <li><strong>Frequency Response:</strong> Range of frequencies the speaker can reproduce (e.g., 20 Hz – 20 kHz).</li>
+        <li><strong>Power Rating:</strong> Maximum power the speaker can handle (watts).</li>
+        <li><strong>Impedance:</strong> Electrical resistance (usually 4, 6, or 8 ohms).</li>
+        <li><strong>Sensitivity:</strong> Efficiency of converting power into sound (dB per watt).</li>
+        <li><strong>Size & Weight:</strong> Physical dimensions and portability.</li>
+      </ul>
+    </section>
+    <section class="card" id="speaker-uses">
+      <h2>Uses of Speakers</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH6bBd0nEPOIULZUfmLkUuv4duT-oEI2r_Yg&s" alt="Speaker Uses" class="topic-img" draggable="false">
+      <ul>
+        <li>Listening to music, audio, and multimedia content.</li>
+        <li>Watching movies and videos with sound.</li>
+        <li>Playing games with immersive audio effects.</li>
+        <li>Receiving audio alerts and notifications.</li>
+        <li>Public address systems, concerts, and events.</li>
+        <li>Communication in video calls and voice chats.</li>
+      </ul>
+    </section>
+    <section class="card" id="speaker-importance">
+      <h2>Importance of Speakers</h2>
+      <img src="https://media.istockphoto.com/id/1434656561/vector/musical-melody-note-sound-wave-acoustic-equalizer-singing-song-realistic-3d-icon-vector.jpg?s=612x612&w=0&k=20&c=jH_L0KWsoidyJahV5TutnlAV3pilVEKM2nbpC-ucM7U=" alt="Importance of Speakers" class="topic-img" draggable="false">
+      <p>
+        Speakers are vital for experiencing digital audio, making computers and devices interactive and enjoyable. They enable communication, entertainment, learning, and accessibility for users of all ages.
+      </p>
+    </section>
+    <section class="card" id="speaker-care">
+      <h2>Care and Maintenance</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxd59XRESZp_IDnM7TsmfAV1ZJZu5FYv5M5g&s" alt="Speaker Care" class="topic-img" draggable="false">
+      <ul>
+        <li>Keep speakers clean and free from dust.</li>
+        <li>Avoid exposure to moisture and extreme temperatures.</li>
+        <li>Do not overload speakers with excessive volume or power.</li>
+        <li>Check connections and cables regularly for secure fit.</li>
+        <li>Use surge protectors to guard against power spikes.</li>
+      </ul>
+    </section>
+    <section class="card" id="speaker-faq">
+      <h2>Frequently Asked Questions (FAQs)</h2>
+      <ul class="faq-list">
+        <li>
+          <span class="faq-q">Q1. What is the main function of a speaker?</span>
+          <span class="faq-a">A speaker converts electrical audio signals into sound waves, allowing us to hear music, voices, and other audio from computers and devices.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q2. What is the difference between a woofer and a tweeter?</span>
+          <span class="faq-a">A woofer produces low-frequency (bass) sounds, while a tweeter produces high-frequency (treble) sounds. Both are often used together for full-range audio.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q3. What does "frequency response" mean for a speaker?</span>
+          <span class="faq-a">Frequency response is the range of sound frequencies (from low to high) that a speaker can reproduce, usually measured in Hertz (Hz).</span>
+        </li>
+        <li>
+          <span class="faq-q">Q4. What is a Bluetooth speaker?</span>
+          <span class="faq-a">A Bluetooth speaker is a wireless speaker that connects to devices using Bluetooth technology, allowing portable and cable-free audio playback.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q5. How can you take care of your speakers?</span>
+          <span class="faq-a">Keep them clean and dry, avoid excessive volume, use proper connections, and protect from power surges and physical damage.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q6. What is impedance in speakers?</span>
+          <span class="faq-a">Impedance is the electrical resistance of a speaker, measured in ohms (Ω). It affects how much power the speaker draws from an amplifier.</span>
+        </li>
+        <li>
+          <span class="faq-q">Q7. Why are speakers important in computers?</span>
+          <span class="faq-a">Speakers make computers interactive and enjoyable by providing audio feedback, enabling communication, entertainment, and accessibility.</span>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <a href="javascript:history.back()" class="back-btn">Back</a>
+  <div class="watermark">
+    © Pawan Soni
+  </div>
+</body>
+</html>

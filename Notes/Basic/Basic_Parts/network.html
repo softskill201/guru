@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Computer Networks - Full Detailed Notes</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #4776e6, #38ef7d 100%);
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2vw 0 0 0;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+  }
+  .academy-header {
+    width: 100vw;
+    background: rgba(71,118,230,0.93);
+    padding: 1.2em 0 0.5em 0;
+    text-align: center;
+    box-shadow: 0 4px 24px #38ef7d44;
+    margin-bottom: 0.3em;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    animation: fadeInDown 1.1s;
+  }
+  .academy-header h1 {
+    font-size: 2.1em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    margin-bottom: 0.2em;
+    text-shadow: 0 2px 18px #38ef7d88;
+    animation: glow 2s infinite alternate;
+  }
+  .academy-header h2 {
+    font-size: 1.02em;
+    color: #ffe066;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 0.4em;
+    text-shadow: 0 1px 8px #fff7;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-50px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  @keyframes glow {
+    from { text-shadow: 0 0 8px #fff, 0 0 16px #4776e6; }
+    to   { text-shadow: 0 0 24px #fff, 0 0 32px #38ef7d; }
+  }
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    animation: fadeInDown 1.1s;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    animation: glow 2s infinite alternate;
+  }
+  header p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 0.4rem;
+    color: #d9fff7;
+    letter-spacing: 1px;
+    animation: fadeIn 2s;
+  }
+  .smartart-container {
+    width: 100%;
+    max-width: 950px;
+    margin: 0 auto 30px auto;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    background: #e7fff2;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #38ef7d33;
+  }
+  .smartart-inner {
+    min-width: 700px;
+    padding: 20px 0 10px 0;
+  }
+  main {
+    max-width: 1100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.8rem;
+    animation: fadeInUp 1.2s;
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .card {
+    background: #ffffffee;
+    border-radius: 15px;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.13);
+    padding: 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.35s cubic-bezier(.17,.67,.83,.67), box-shadow 0.35s cubic-bezier(.17,.67,.83,.67);
+    opacity: 0;
+    animation: cardFadeIn 1.1s forwards;
+  }
+  .card:nth-child(1) { animation-delay: .2s;}
+  .card:nth-child(2) { animation-delay: .4s;}
+  .card:nth-child(3) { animation-delay: .6s;}
+  .card:nth-child(4) { animation-delay: .8s;}
+  .card:nth-child(5) { animation-delay: 1s;}
+  .card:nth-child(6) { animation-delay: 1.2s;}
+  .card:nth-child(7) { animation-delay: 1.4s;}
+  .card:nth-child(8) { animation-delay: 1.6s;}
+  .card:nth-child(9) { animation-delay: 1.8s;}
+  .card:nth-child(10) { animation-delay: 2s;}
+  .card:nth-child(11) { animation-delay: 2.2s;}
+  @keyframes cardFadeIn {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+  }
+  .card:hover {
+    transform: translateY(-13px) scale(1.025) rotateZ(-1deg);
+    box-shadow: 0 18px 44px rgba(56,239,125,0.13);
+    background: #e7fff2;
+  }
+  .card h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #4776e6;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-bottom: 3px solid #38ef7d;
+    padding-bottom: 0.4rem;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+  .card:hover h2 {
+    color: #38ef7d;
+  }
+  .card p {
+    font-size: 1.07rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  .card ul {
+    margin: 0.5rem 0 0 1.2rem;
+    color: #444;
+  }
+  .card ul li {
+    margin-bottom: 0.6rem;
+    transition: color 0.2s;
+  }
+  .card:hover ul li {
+    color: #4776e6;
+  }
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0 0 0;
+    font-size: 1em;
+    box-shadow: 0 2px 12px #38ef7d33;
+    background: #fff;
+  }
+  .comparison-table th, .comparison-table td {
+    border: 1.5px solid #c8f7e7;
+    padding: 10px 8px;
+    text-align: left;
+  }
+  .comparison-table th {
+    background: #4776e6;
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .comparison-table tr:nth-child(even) {
+    background: #f5fff9;
+  }
+  .back-btn {
+    display: block;
+    margin: 3.5em auto 0 auto;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #4776e6 0%, #38ef7d 100%);
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.12em;
+    letter-spacing: 1.5px;
+    box-shadow: 0 8px 32px 0 #38ef7d55;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+    outline: none;
+    min-width: 120px;
+    text-align: center;
+  }
+  .back-btn:hover, .back-btn:focus {
+    background: linear-gradient(90deg, #38ef7d 0%, #4776e6 100%);
+    color: #fff;
+    transform: scale(1.06);
+    box-shadow: 0 12px 36px 0 #38ef7d88;
+  }
+  .watermark {
+    width: 100vw;
+    text-align: center;
+    color: #4776e6;
+    font-size: 1.02em;
+    letter-spacing: 1.3px;
+    margin: 34px auto 0 auto;
+    opacity: 0.7;
+    text-shadow: 0 2px 10px #38ef7d99;
+    font-weight: 600;
+    padding-bottom: 14px;
+    user-select: none;
+    pointer-events: none;
+  }
+  footer {
+    margin-top: 2.5rem;
+    font-size: 0.95rem;
+    color: #4776e6;
+    text-align: center;
+    animation: fadeIn 2s;
+    letter-spacing: 1px;
+  }
+  * {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    -moz-user-select: none !important;
+  }
+  ::selection {
+    background: transparent;
+  }
+  @media(max-width: 700px) {
+    .smartart-inner {
+      min-width: 480px;
+    }
+    main {
+      grid-template-columns: 1fr;
+      padding: 0;
+    }
+    .card {
+      padding: 1.5rem 1.2rem;
+    }
+  }
+</style>
+<script>
+  document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener('copy', event => event.preventDefault());
+  document.addEventListener('cut', event => event.preventDefault());
+  document.addEventListener('paste', event => event.preventDefault());
+  document.addEventListener('dragstart', event => event.preventDefault());
+  document.addEventListener('keydown', function(e) {
+    if (e.key === "PrintScreen") {
+      navigator.clipboard.writeText('');
+      alert('Screenshots are disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 'p') {
+      alert('Printing is disabled on this page.');
+      e.preventDefault();
+    }
+    if (e.ctrlKey && e.key.toLowerCase() === 's') {
+      alert('Saving is disabled on this page.');
+      e.preventDefault();
+    }
+  });
+</script>
+</head>
+<body>
+  <div class="academy-header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <h2>AN ISO CERTIFIED INSTITUTE</h2>
+  </div>
+
+<!-- SmartArt Network Types Chart -->
+<div class="smartart-container">
+  <div class="smartart-inner">
+    <svg viewBox="0 0 900 360">
+      <!-- Main Node -->
+      <rect x="370" y="20" width="160" height="50" rx="16" fill="#4776e6"/>
+      <text x="450" y="53" text-anchor="middle" fill="#fff" font-size="22" font-family="Poppins">Computer Networks</text>
+      <!-- Arrows to Types -->
+      <line x1="450" y1="70" x2="180" y2="130" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <line x1="450" y1="70" x2="320" y2="130" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <line x1="450" y1="70" x2="580" y2="130" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <line x1="450" y1="70" x2="720" y2="130" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <!-- LAN -->
+      <rect x="120" y="130" width="120" height="45" rx="12" fill="#fff"/>
+      <text x="180" y="160" text-anchor="middle" fill="#4776e6" font-size="18" font-family="Poppins">LAN</text>
+      <text x="180" y="180" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Local Area Network</text>
+      <!-- MAN -->
+      <rect x="260" y="130" width="120" height="45" rx="12" fill="#fff"/>
+      <text x="320" y="160" text-anchor="middle" fill="#4776e6" font-size="18" font-family="Poppins">MAN</text>
+      <text x="320" y="180" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Metropolitan Area</text>
+      <!-- WAN -->
+      <rect x="520" y="130" width="120" height="45" rx="12" fill="#fff"/>
+      <text x="580" y="160" text-anchor="middle" fill="#4776e6" font-size="18" font-family="Poppins">WAN</text>
+      <text x="580" y="180" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Wide Area Network</text>
+      <!-- PAN -->
+      <rect x="660" y="130" width="120" height="45" rx="12" fill="#fff"/>
+      <text x="720" y="160" text-anchor="middle" fill="#4776e6" font-size="18" font-family="Poppins">PAN</text>
+      <text x="720" y="180" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Personal Area</text>
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
+          <polygon points="0,0 8,4 0,8" fill="#38ef7d"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+</div>
+
+<main>
+  <section class="card">
+    <h2>What is a Computer Network?</h2>
+    <p>
+      A <strong>computer network</strong> is a collection of interconnected computers and devices that communicate and share resources (data, files, printers, internet) using communication channels (wired or wireless). Networks enable collaboration, resource sharing, and communication locally and globally.
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>Types of Networks</h2>
+    <ul>
+      <li><b>PAN (Personal Area Network):</b> Very small, connects devices within a few meters (e.g., Bluetooth, USB, hotspot).</li>
+      <li><b>LAN (Local Area Network):</b> Covers a small area like a room, building, or campus (e.g., school/office network, Wi-Fi).</li>
+      <li><b>MAN (Metropolitan Area Network):</b> Spans a city or large campus (e.g., city-wide cable TV, university network).</li>
+      <li><b>WAN (Wide Area Network):</b> Covers large areas, even countries/continents (e.g., Internet, bank networks).</li>
+      <li><b>Other:</b> CAN (Campus Area), SAN (Storage Area), VPN (Virtual Private Network).</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Network Topologies</h2>
+    <ul>
+      <li><b>Bus Topology:</b> All devices connected to a single backbone cable.</li>
+      <li><b>Star Topology:</b> All devices connected to a central hub/switch.</li>
+      <li><b>Ring Topology:</b> Each device connected to two others, forming a ring.</li>
+      <li><b>Mesh Topology:</b> Every device connects to every other device (robust, expensive).</li>
+      <li><b>Hybrid Topology:</b> Combination of two or more topologies.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Network Devices</h2>
+    <ul>
+      <li><b>Hub:</b> Simple device that connects multiple computers in a LAN (broadcasts data to all).</li>
+      <li><b>Switch:</b> Smarter than hub, sends data only to intended device.</li>
+      <li><b>Router:</b> Connects different networks, routes data between LANs, WANs, and the Internet.</li>
+      <li><b>Bridge:</b> Connects and filters traffic between two LAN segments.</li>
+      <li><b>Repeater:</b> Boosts signals to extend network range.</li>
+      <li><b>Modem:</b> Converts digital data to analog for transmission over phone lines (and vice versa).</li>
+      <li><b>Access Point:</b> Wireless device that allows Wi-Fi devices to connect to a wired network.</li>
+      <li><b>Firewall:</b> Security device to monitor and control incoming/outgoing network traffic.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Transmission Media</h2>
+    <ul>
+      <li><b>Wired:</b> Twisted pair cables (Ethernet), coaxial cables, fiber optic cables.</li>
+      <li><b>Wireless:</b> Radio waves (Wi-Fi), microwaves, infrared, Bluetooth, satellite.</li>
+      <li><b>Fiber Optic:</b> Uses light signals, very high speed, long distance, immune to EMI.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Network Protocols</h2>
+    <ul>
+      <li><b>TCP/IP:</b> Foundation of the Internet, ensures reliable data transmission.</li>
+      <li><b>HTTP/HTTPS:</b> Protocols for web browsing (secure version is HTTPS).</li>
+      <li><b>FTP:</b> File Transfer Protocol, for uploading and downloading files.</li>
+      <li><b>SMTP/POP/IMAP:</b> Email protocols (sending and receiving emails).</li>
+      <li><b>Ethernet:</b> Standard for wired LANs.</li>
+      <li><b>Wi-Fi (IEEE 802.11):</b> Standard for wireless LANs.</li>
+      <li><b>Bluetooth:</b> Short-range wireless communication.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Advantages of Computer Networks</h2>
+    <ul>
+      <li>Resource sharing (printers, files, internet)</li>
+      <li>Centralized data management and backup</li>
+      <li>Communication (email, chat, video calls)</li>
+      <li>Cost-effective and efficient collaboration</li>
+      <li>Remote access and cloud computing</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Disadvantages & Risks</h2>
+    <ul>
+      <li>Security threats (hacking, viruses, data theft)</li>
+      <li>Network congestion and downtime</li>
+      <li>Initial setup and maintenance cost</li>
+      <li>Data privacy issues</li>
+      <li>Dependence on network for daily tasks</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Comparison Table: Network Types</h2>
+    <table class="comparison-table">
+      <tr>
+        <th>Type</th>
+        <th>Full Form</th>
+        <th>Area Covered</th>
+        <th>Example</th>
+      </tr>
+      <tr>
+        <td>PAN</td>
+        <td>Personal Area Network</td>
+        <td>Few meters</td>
+        <td>Bluetooth, USB tethering</td>
+      </tr>
+      <tr>
+        <td>LAN</td>
+        <td>Local Area Network</td>
+        <td>Room, building, campus</td>
+        <td>Office/school Wi-Fi</td>
+      </tr>
+      <tr>
+        <td>MAN</td>
+        <td>Metropolitan Area Network</td>
+        <td>City, metro area</td>
+        <td>Cable TV, city Wi-Fi</td>
+      </tr>
+      <tr>
+        <td>WAN</td>
+        <td>Wide Area Network</td>
+        <td>Country, world</td>
+        <td>Internet, bank network</td>
+      </tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>Frequently Asked Questions (FAQs)</h2>
+    <ul>
+      <li><b>Q1. What is the Internet?</b><br>
+        <b>Ans:</b> The Internet is a global WAN connecting millions of networks and devices worldwide.</li>
+      <li><b>Q2. What is the difference between a hub and a switch?</b><br>
+        <b>Ans:</b> A hub broadcasts data to all devices; a switch sends data only to the intended device.</li>
+      <li><b>Q3. What is an IP address?</b><br>
+        <b>Ans:</b> An IP address is a unique identifier for a device on a network (e.g., 192.168.1.1).</li>
+      <li><b>Q4. What is a firewall?</b><br>
+        <b>Ans:</b> A firewall is a security device that monitors and controls network traffic.</li>
+      <li><b>Q5. What is bandwidth?</b><br>
+        <b>Ans:</b> Bandwidth is the maximum data transfer rate of a network, measured in Mbps or Gbps.</li>
+      <li><b>Q6. What is a VPN?</b><br>
+        <b>Ans:</b> VPN (Virtual Private Network) creates a secure, encrypted connection over the Internet.</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Summary Table: Key Network Devices</h2>
+    <table>
+      <tr>
+        <th>Device</th>
+        <th>Function</th>
+      </tr>
+      <tr>
+        <td>Hub</td>
+        <td>Connects devices, broadcasts data to all</td>
+      </tr>
+      <tr>
+        <td>Switch</td>
+        <td>Connects devices, forwards data to specific device</td>
+      </tr>
+      <tr>
+        <td>Router</td>
+        <td>Routes data between networks, connects to Internet</td>
+      </tr>
+      <tr>
+        <td>Bridge</td>
+        <td>Connects two LAN segments</td>
+      </tr>
+      <tr>
+        <td>Repeater</td>
+        <td>Boosts/extends network signal</td>
+      </tr>
+      <tr>
+        <td>Modem</td>
+        <td>Converts digital to analog (and vice versa)</td>
+      </tr>
+      <tr>
+        <td>Access Point</td>
+        <td>Enables wireless devices to join wired network</td>
+      </tr>
+      <tr>
+        <td>Firewall</td>
+        <td>Monitors and secures network traffic</td>
+      </tr>
+    </table>
+  </section>
+</main>
+<a href="javascript:history.back()" class="back-btn">Back</a>
+<div class="watermark">
+  © Pawan Soni
+</div>
+</body>
+          </html>
+  
