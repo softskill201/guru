@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Classification of Computers | Chitragupt Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;500;400&display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 100%);
+      color: #1a3a4a;
+      min-height: 100vh;
+      user-select: none;
+      overflow-x: hidden;
+    }
+    body {
+      background: linear-gradient(270deg, #8ec5fc, #e0c3fc, #a8edea, #fed6e3);
+      background-size: 800% 800%;
+      animation: animatedBg 18s ease-in-out infinite;
+    }
+    @keyframes animatedBg {
+      0%{background-position:0% 50%}
+      25%{background-position:100% 50%}
+      50%{background-position:100% 100%}
+      75%{background-position:0% 100%}
+      100%{background-position:0% 50%}
+    }
+    .header {
+      text-align: center;
+      padding: 38px 10px 16px 10px;
+      background: rgba(255,255,255,0.7);
+      box-shadow: 0 4px 18px rgba(44, 62, 80, 0.08);
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      position: relative;
+      z-index: 10;
+      margin-bottom: 24px;
+      animation: fadeInDown 1.2s;
+    }
+    .header h1 {
+      font-size: 2.7rem;
+      margin: 0;
+      letter-spacing: 2px;
+      font-weight: 700;
+      color: #1a3a4a;
+      text-shadow: 0 2px 10px #fff6;
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+    }
+    .header h1:after {
+      content: "";
+      display: block;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+      border-radius: 2px;
+      margin: 8px auto 0 auto;
+      animation: underlineGrow 1.3s 0.2s forwards;
+    }
+    @keyframes underlineGrow {
+      to { width: 60%; }
+    }
+    .header h2 {
+      font-size: 1.2rem;
+      color: #0a7cff;
+      font-weight: 500;
+      margin: 16px 0 0 0;
+      letter-spacing: 1.5px;
+      animation: fadeInDown 1.5s;
+    }
+    /* SmartArt Styles */
+    .smartart-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px auto 26px auto;
+      width: 100%;
+      min-height: 290px;
+      max-width: 1040px;
+      animation: fadeInUp 1.2s;
+    }
+    .smartart {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 250px;
+      z-index: 2;
+      overflow-x: auto;
+    }
+    .smartart svg {
+      width: 100%;
+      height: 250px;
+      display: block;
+    }
+    .smartart text {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      pointer-events: none;
+    }
+    /* Animate SmartArt nodes */
+    .smartart .main-node {
+      filter: drop-shadow(0 2px 12px #8ec5fc99);
+      animation: popIn 1.2s;
+    }
+    .smartart .branch-node {
+      filter: drop-shadow(0 2px 8px #e0c3fc99);
+      animation: popIn 1.6s;
+    }
+    .smartart .leaf-node {
+      filter: drop-shadow(0 1px 4px #fed6e399);
+      animation: popIn 2s;
+    }
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.7);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    /* Animate arrows */
+    .smartart .arrow {
+      stroke-dasharray: 180;
+      stroke-dashoffset: 180;
+      animation: drawArrow 1.2s forwards;
+    }
+    @keyframes drawArrow {
+      to { stroke-dashoffset: 0; }
+    }
+    /* Main Content */
+    .content {
+      max-width: 980px;
+      margin: 0 auto 30px auto;
+      background: rgba(255,255,255,0.92);
+      border-radius: 22px;
+      box-shadow: 0 8px 32px rgba(44, 62, 80, 0.13);
+      padding: 36px 28px 28px 28px;
+      position: relative;
+      animation: fadeIn 1.4s;
+    }
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #0a7cff;
+      margin-bottom: 18px;
+      letter-spacing: 0.5px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      animation: slideInLeft 1.1s;
+    }
+    .section-title .fa {
+      animation: bounceIcon 1.4s infinite alternate;
+    }
+    @keyframes bounceIcon {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-8px);}
+    }
+    .card {
+      background: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(34,52,68,0.08);
+      margin-bottom: 28px;
+      padding: 28px 22px 20px 22px;
+      transition: transform 0.22s, box-shadow 0.22s;
+      animation: fadeInUp 0.9s;
+      position: relative;
+      overflow: hidden;
+      border-left: 7px solid #0a7cff;
+    }
+    .card:hover {
+      transform: translateY(-6px) scale(1.018);
+      box-shadow: 0 12px 38px rgba(44, 62, 80, 0.16);
+      border-left: 7px solid #ff4d4d;
+    }
+    .card .icon {
+      font-size: 2.2rem;
+      color: #ff4d4d;
+      margin-right: 13px;
+      vertical-align: middle;
+      animation: pulseIcon 2s infinite alternate;
+    }
+    @keyframes pulseIcon {
+      0% { filter: drop-shadow(0 0 0 #ff4d4d); }
+      100% { filter: drop-shadow(0 0 8px #ff4d4d88);}
+    }
+    .card-title {
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #1a3a4a;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+    .card-content {
+      font-size: 1.07rem;
+      color: #234;
+      line-height: 1.7;
+      margin-left: 0;
+      margin-bottom: 6px;
+      animation: fadeIn 1.7s;
+    }
+    .examples {
+      margin-top: 8px;
+      font-size: 1.01rem;
+      color: #0022b8;
+      font-weight: 500;
+      animation: fadeInUp 1.7s;
+    }
+    .screenshot-container {
+      position: relative;
+      max-width: 600px;
+      margin: 2rem auto 2rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(75,0,152,0.11);
+      cursor: not-allowed;
+      user-select: none;
+      animation: zoomIn 1.5s ease forwards;
+    }
+    .screenshot-container img {
+      width: 100%;
+      height: auto;
+      filter: brightness(0.8) blur(1px);
+      pointer-events: none;
+      transition: filter 0.4s;
+    }
+    .screenshot-container:hover img {
+      filter: brightness(0.6) blur(2px);
+    }
+    .lock-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      color: #ffe082cc;
+      pointer-events: none;
+      user-select: none;
+      animation: pulseLock 3s ease-in-out infinite;
+      text-shadow: 0 0 10px #ffe082bb, 0 0 18px #7c4dffcc;
+    }
+    .back-btn {
+      display: inline-block;
+      text-align: center;
+      margin: 0 auto 24px auto;
+      padding: 13px 38px;
+      background: linear-gradient(90deg, #c8ff00 0%, #ffb005 100%);
+      color: #0004ff;
+      border: none;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.12em;
+      letter-spacing: 1.5px;
+      box-shadow: 0 8px 32px 0 #11998e55;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 30px;
+      outline: none;
+      width: max-content;
+      min-width: 120px;
+      animation: fadeInUp 1.6s;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+      color: #fff;
+      transform: translateX(-50%) scale(1.06);
+      box-shadow: 0 12px 36px 0 #38ef7d88;
+    }
+    .copyright {
+      text-align: center;
+      color: #ff0000;
+      font-size: 1.08em;
+      letter-spacing: 1.3px;
+      margin: 36px auto 0 auto;
+      opacity: 0.9;
+      text-shadow: 0 2px 10px #11998e99;
+      font-weight: 600;
+      padding-bottom: 14px;
+      width: 100vw;
+      box-sizing: border-box;
+      animation: fadeIn 2.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-40px);}
+      to { opacity: 1; transform: translateX(0);}
+    }
+    @keyframes zoomIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    @keyframes pulseLock {
+      0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
+      50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
+    }
+    /* Microinteraction for card titles */
+    .card-title:hover .icon {
+      color: #ff0a0a;
+      filter: drop-shadow(0 0 8px #000000);
+      transform: scale(1.16) rotate(-10deg);
+      transition: all 0.3s;
+    }
+    /* Responsive */
+    @media (max-width: 1020px) {
+      .smartart svg { width: 900px; min-width: 900px; }
+      .smartart { overflow-x: auto; }
+    }
+    @media (max-width: 700px) {
+      .content { padding: 20px 5vw 16px 5vw; }
+      .header h1 { font-size: 2rem; }
+      .header h2 { font-size: 1rem; }
+      .section-title { font-size: 1.2rem;}
+      .card { padding: 12px 8px 10px 10px; }
+      .card-title { font-size: 1rem;}
+      .card-content { font-size: 0.98rem;}
+      .screenshot-container { max-width: 98vw; }
+      .smartart-wrap { min-height: 210px;}
+      .smartart svg { height: 210px; }
+    }
+  </style>
+  <script>
+    // Disable right click, text selection, and copy
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.oncontextmenu = function() { return false; }
+      document.body.onselectstart = function() { return false; }
+      document.body.onmousedown = function(e) { if(e.detail > 1) e.preventDefault(); }
+    });
+    document.addEventListener('copy', function(e) {
+      e.preventDefault();
+      alert("Copying content is disabled!");
+    });
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <h2>AN ISO CERTIFIED INSTITUTION</h2>
+  </div>
+
+  <!-- SmartArt Section -->
+ <!-- SmartArt Section -->
+<!-- Hierarchy SmartArt: Classification of Computer -->
+<!-- Responsive Hierarchy SmartArt: Classification of Computer -->
+<div style="width:100%;max-width:950px;margin:24px auto;overflow-x:auto;">
+  <svg viewBox="0 0 950 400" width="100%" style="min-width:600px;max-width:950px;height:auto;display:block;">
+    <defs>
+      <linearGradient id="mainGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#8ec5fc"/>
+        <stop offset="100%" stop-color="#e0c3fc"/>
+      </linearGradient>
+      <linearGradient id="funcGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#38ef7d"/>
+        <stop offset="100%" stop-color="#11998e"/>
+      </linearGradient>
+      <linearGradient id="sizeGrad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#fed6e3"/>
+        <stop offset="100%" stop-color="#c471f5"/>
+      </linearGradient>
+      <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#222" flood-opacity="0.14"/>
+      </filter>
+    </defs>
+    <!-- Main Node -->
+    <rect x="300" y="30" width="150" height="54" rx="18" fill="url(#mainGrad)" filter="url(#shadow)" />
+    <text x="375" y="62" text-anchor="middle" fill="#1a3a4a" font-size="20" font-weight="bold" font-family="Montserrat">Classification of Computer</text>
+    <!-- Level 2: Two Branches -->
+    <rect x="110" y="120" width="230" height="44" rx="14" fill="url(#funcGrad)" filter="url(#shadow)"/>
+    <text x="225" y="148" text-anchor="middle" fill="#000" font-size="16" font-weight="bold" font-family="Montserrat">Based on Work / Function</text>
+    <rect x="410" y="120" width="230" height="44" rx="14" fill="url(#sizeGrad)" filter="url(#shadow)"/>
+    <text x="525" y="148" text-anchor="middle" fill="#000" font-size="16" font-weight="bold" font-family="Montserrat">Based on Size</text>
+    <!-- Connectors from main node to branches -->
+    <line x1="375" y1="84" x2="225" y2="120" stroke="#38ef7d" stroke-width="3"/>
+    <line x1="375" y1="84" x2="525" y2="120" stroke="#c471f5" stroke-width="3"/>
+    <!-- Level 3: Work/Function subtypes -->
+    <rect x="30" y="220" width="120" height="38" rx="12" fill="#fff" filter="url(#shadow)"/>
+    <text x="90" y="245" text-anchor="middle" fill="#11998e" font-size="15" font-weight="bold" font-family="Montserrat">
+      <tspan class="fa" font-size="17">&#xf76f;</tspan> Analog
+    </text>
+    <rect x="170" y="220" width="120" height="38" rx="12" fill="#fff" filter="url(#shadow)"/>
+    <text x="230" y="245" text-anchor="middle" fill="#11998e" font-size="15" font-weight="bold" font-family="Montserrat">
+      <tspan class="fa" font-size="17">&#xf470;</tspan> Digital
+    </text>
+    <rect x="330" y="220" width="120" height="38" rx="12" fill="#fff" filter="url(#shadow)"/>
+    <text x="390" y="245" text-anchor="middle" fill="#11998e" font-size="15" font-weight="bold" font-family="Montserrat">
+      <tspan class="fa" font-size="17">&#xf24d;</tspan> Hybrid
+    </text>
+    <!-- Connectors for Work/Function -->
+    <line x1="225" y1="164" x2="90" y2="220" stroke="#38ef7d" stroke-width="2"/>
+    <line x1="225" y1="164" x2="230" y2="220" stroke="#38ef7d" stroke-width="2"/>
+    <line x1="225" y1="164" x2="390" y2="220" stroke="#38ef7d" stroke-width="2"/>
+    <!-- Level 3: Size subtypes -->
+    <rect x="500" y="220" width="90" height="38" rx="12" fill="#fff" filter="url(#shadow)"/>
+    <text x="545" y="245" text-anchor="middle" fill="#c471f5" font-size="15" font-weight="bold" font-family="Montserrat">
+      <tspan class="fa" font-size="17">&#xf2db;</tspan> Micro
+    </text>
+    <rect x="600" y="220" width="90" height="38" rx="12" fill="#fff" filter="url(#shadow)"/>
+    <text x="645" y="245" text-anchor="middle" fill="#c471f5" font-size="15" font-weight="bold" font-family="Montserrat">
+      <tspan class="fa" font-size="17">&#xf233;</tspan> Mini
+    </text>
+    <rect x="700" y="220" width="110" height="38" rx="12" fill="#fff" filter="url(#shadow)"/>
+    <text x="755" y="245" text-anchor="middle" fill="#c471f5" font-size="15" font-weight="bold" font-family="Montserrat">
+      <tspan class="fa" font-size="17">&#xf1c0;</tspan> Mainframe
+    </text>
+    <rect x="820" y="220" width="70" height="38" rx="12" fill="#fff" filter="url(#shadow)"/>
+    <text x="855" y="245" text-anchor="middle" fill="#c471f5" font-size="15" font-weight="bold" font-family="Montserrat">
+      <tspan class="fa" font-size="17">&#xf135;</tspan> Super
+    </text>
+    <!-- Connectors for Size -->
+    <line x1="525" y1="164" x2="545" y2="220" stroke="#c471f5" stroke-width="2"/>
+    <line x1="525" y1="164" x2="645" y2="220" stroke="#c471f5" stroke-width="2"/>
+    <line x1="525" y1="164" x2="755" y2="220" stroke="#c471f5" stroke-width="2"/>
+    <line x1="525" y1="164" x2="855" y2="220" stroke="#c471f5" stroke-width="2"/>
+  </svg>
+</div>
+
+  <!-- Main Content -->
+  <div class="content">
+    <div class="section-title"><i class="fas fa-layer-group"></i> Classification of Computers</div>
+    
+    <div class="card" style="animation-delay:0.1s;">
+      <div class="card-title"><i class="fas fa-tasks icon"></i>Classification Criteria</div>
+      <div class="card-content">
+        Computers are classified in two main ways:
+        <ol>
+          <li><b>On the basis of Work/Function</b></li>
+          <li><b>On the basis of Size</b></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section-title"><i class="fas fa-cogs"></i> Based on Work / Function</div>
+    
+    <div class="card" style="animation-delay:0.2s;">
+      <div class="card-title"><i class="fas fa-wave-square icon"></i>Analog Computer</div>
+      <div class="card-content">
+        <b>Analog Computers</b> process continuous data and represent physical quantities such as temperature, speed, voltage, or pressure. They provide results as readings on dials, meters, or graphs. Used in science, engineering, and industry for real-time measurements and simulations.
+        <div class="examples"><b>Examples:</b> Thermometers, speedometers, voltmeters, analog clocks.</div>
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.25s;">
+      <img src="https://www.shahnawazblog.com/wp-content/uploads/2021/09/Analog-Computer.webp" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:0.3s;">
+      <div class="card-title"><i class="fas fa-binary icon"></i>Digital Computer</div>
+      <div class="card-content">
+        <b>Digital Computers</b> process data in binary form (0 and 1). They perform calculations, logical operations, and data processing using electronic circuits. Most modern computers (PCs, laptops, smartphones) are digital.
+        <div class="examples"><b>Examples:</b> IBM PC, Apple Macintosh, modern smartphones, calculators.</div>
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.35s;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWeXfY-3dGMb90afSmyceappSM54K5UlGWA&s" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:0.4s;">
+      <div class="card-title"><i class="fas fa-random icon"></i>Hybrid Computer</div>
+      <div class="card-content">
+        <b>Hybrid Computers</b> combine the features of both analog and digital computers. They can process both continuous (analog) and discrete (digital) data. Used in specialized applications like hospital monitoring systems, petrol pumps, and scientific research.
+        <div class="examples"><b>Example:</b> Petrol pump computers measure fuel quantity (analog) and calculate price (digital).</div>
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.45s;">
+      <img src="https://www.tutorialspoint.com/computer_fundamentals/images/hybrid_computer.jpg" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+
+    <div class="section-title" style="margin-top:32px;"><i class="fas fa-expand-arrows-alt"></i> Based on Size</div>
+    
+    <div class="card" style="animation-delay:0.5s;">
+      <div class="card-title"><i class="fas fa-microchip icon"></i>Micro Computer</div>
+      <div class="card-content">
+        <b>Micro Computers</b> are the smallest and most widely used computers. They use microprocessors as their CPU and are commonly used at homes, schools, and small offices. Also known as Personal Computers (PCs).
+        <div class="examples"><b>Subtypes:</b> Desktop, Laptop, Palmtop, Notebook, Tablet</div>
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.55s;">
+      <img src="https://www.tutorialspoint.com/computer_fundamentals/images/micro_computer.jpg" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:0.6s;">
+      <div class="card-title"><i class="fas fa-desktop icon"></i>Desktop Computer</div>
+      <div class="card-content">
+        <b>Desktop Computers</b> are designed for regular use at a single location. They include a CPU, monitor, keyboard, and mouse, and are placed on a desk. Desktops are larger and require a constant power supply.
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.65s;">
+      <img src="https://img.freepik.com/free-vector/modern-desktop-computer-concept-illustration_114360-16235.jpg?semt=ais_hybrid&w=740" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:0.7s;">
+      <div class="card-title"><i class="fas fa-laptop icon"></i>Laptop Computer</div>
+      <div class="card-content">
+        <b>Laptop Computers</b> are portable and compact, with all components integrated into a single device. They run on battery power and are ideal for mobile use.
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.75s;">
+      <img src="https://images.pexels.com/photos/7974/pexels-photo.jpg?cs=srgb&dl=pexels-life-of-pix-7974.jpg&fm=jpg" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:0.8s;">
+      <div class="card-title"><i class="fas fa-tablet-alt icon"></i>Palmtop, Notebook & Tablet Computers</div>
+      <div class="card-content">
+        <b>Palmtop Computers</b> are smaller than laptops and can fit in your palm. <b>Notebook Computers</b> are similar to laptops but generally lighter and thinner. <b>Tablet Computers</b> are touch-screen devices, larger than smartphones but smaller than laptops, and highly portable.
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.85s;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEdFljulSlaiF1FMq23SMkHa9V8JG7bk1yg&s" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:0.9s;">
+      <div class="card-title"><i class="fas fa-server icon"></i>Mini Computer</div>
+      <div class="card-content">
+        <b>Mini Computers</b> are mid-sized computers used mainly in organizations for tasks like managing databases and serving multiple users simultaneously. They are more powerful than microcomputers but smaller than mainframes.
+        <div class="examples"><b>Example:</b> PDP-8 (developed by DEC in 1965)</div>
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:0.95s;">
+      <img src="https://www.tutorialspoint.com/computer_fundamentals/images/mini_computer.jpg" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:1.0s;">
+      <div class="card-title"><i class="fas fa-database icon"></i>Mainframe Computer</div>
+      <div class="card-content">
+        <b>Mainframe Computers</b> are large, powerful systems used by big organizations for bulk data processing and supporting hundreds of users at the same time. They offer high memory and processing capabilities.
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:1.05s;">
+      <img src="https://w7.pngwing.com/pngs/700/682/png-transparent-two-black-computer-towers-mainframe-computer-ibm-z13-ibm-mainframe-ibm-computer-network-computer-electronic-device-thumbnail.png" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+    
+    <div class="card" style="animation-delay:1.1s;">
+      <div class="card-title"><i class="fas fa-rocket icon"></i>Super Computer</div>
+      <div class="card-content">
+        <b>Super Computers</b> are the fastest and most powerful computers, used for complex scientific calculations, weather forecasting, nuclear research, and high-end graphics. They use multiple CPUs working together in parallel.
+        <div class="examples">
+          <b>World's First Super Computer:</b> CDC 6600<br>
+          <b>India's First Super Computer:</b> PARAM 8000
+        </div>
+        <div class="examples">
+          <b>Applications:</b> Space research, defense, weather forecasting, scientific simulations, and high-resolution movie production.
+        </div>
+      </div>
+    </div>
+    <div class="screenshot-container" style="animation-delay:1.15s;">
+      <img src="https://www.tutorialspoint.com/computer_fundamentals/images/super_computer.jpg" draggable="false" />
+      <div class="lock-overlay">🔒</div>
+    </div>
+  </div>
+
+  <a href="javascript:history.back()" class="back-btn">Back</a>
+  <div class="copyright">
+    © Pawan Soni
+  </div>
+</body>
+</html>
