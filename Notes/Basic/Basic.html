@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Computer Notes - Chitragupt Academy</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f1f8e9, #a5d6a7);
+      color: #2c3e50;
+      user-select: none;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #43a047;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #2e7d32;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    .notes-section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .note-btn {
+      background: white;
+      padding: 15px 25px;
+      border-left: 10px solid #2e7d32;
+      border-radius: 10px;
+      font-size: 18px;
+      color: #2c3e50;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, background-color 0.3s;
+      font-weight: 600;
+    }
+
+    .note-btn:hover {
+      background-color: #e8f5e9;
+      transform: translateX(10px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #ccc;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #2e7d32;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .back-home:hover {
+      background-color: #1b5e20;
+    }
+
+    /* Disable right-click and text selection */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    body::selection {
+      background: none;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', function(e) {
+      if (
+        (e.ctrlKey && ['u', 'U', 'c', 'C', 's', 'S'].includes(e.key)) ||
+        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+        e.key === 'F12'
+      ) {
+        e.preventDefault();
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <h1>CHITRAGUPT ACADEMY</h1>
+    <p>AN ISO CERTIFIED INSTITUTION</p>
+  </header>
+
+  <div class="notes-section">
+    <a class="note-btn" href="Introduction of Computer.html">Introduction of Computer Notes</a>
+    <a class="note-btn" href="Basic_Parts/basic.html">Basic Parts Notes</a>
+    <a class="note-btn" href="acc/acs.html">Accessories Notes</a>
+    <a class="note-btn" href="ms_office.html">MS Office Notes</a>
+    <a class="note-btn" href="basic_pre/part.html">Exam Preparation Notes</a>
+  </div>
+
+  <footer>
+    &copy; <span id="year"></span> Pawan Soni<br>
+    <a href="javascript:history.back()" class="back-btn">Back</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
