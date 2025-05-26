@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>What is a Computer? - Full Detailed Notes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin:0;
+      padding:0;
+      width:100vw;
+      min-height:100vh;
+      overflow-x:hidden;
+      box-sizing: border-box;
+    }
+    body {
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,#11998e,#38ef7d 100%);
+      color:#222;
+      min-height:100vh;
+      padding:0;
+      user-select: none !important;
+      -webkit-user-select: none !important;
+      -ms-user-select: none !important;
+      -moz-user-select: none !important;
+    }
+    header {
+      text-align:center;
+      color:#fff;
+      margin-bottom:2rem;
+      text-shadow: 0 2px 12px #11998e88;
+      padding: 1.2em 0 0.4em 0;
+    }
+    .screenshot-container {
+        position: relative;
+        max-width: 600px;
+        margin: 3rem auto 2rem;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 30px rgba(75,0,152,0.6);
+        cursor: not-allowed;
+        user-select: none;
+        animation: zoomIn 1.5s ease forwards;
+    }
+    .screenshot-container img {
+        width: 100%;
+        height: auto;
+        filter: brightness(0.8);
+        pointer-events: none;
+    }
+    .lock-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4rem;
+        color: #ffe082cc;
+        pointer-events: none;
+        user-select: none;
+        animation: pulseLock 3s ease-in-out infinite;
+        text-shadow: 0 0 10px #ffe082bb, 0 0 18px #7c4dffcc;
+    }    /* Animations */
+    @keyframes containerFadeIn {
+        from {opacity: 0; transform: translateY(40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+        from {opacity: 0; transform: translateY(24px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes slideInDown {
+        from {opacity: 0; transform: translateY(-40px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes zoomIn {
+        from {opacity: 0; transform: scale(0.9);}
+        to {opacity: 1; transform: scale(1);}
+    }
+    @keyframes pulseLock {
+        0%, 100% {opacity: 0.6; transform: translate(-50%, -50%) scale(1);}
+        50% {opacity: 1; transform: translate(-50%, -50%) scale(1.15);}
+    }
+    .back-btn {
+      display: inline-block;
+      text-align: center;
+      margin: 0 auto 24px auto;
+      padding: 13px 38px;
+      background: linear-gradient(90deg, #c8ff00 0%, #ffb005 100%);
+      color: #0004ff;
+      border: none;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 1.12em;
+      letter-spacing: 1.5px;
+      box-shadow: 0 8px 32px 0 #11998e55;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.28s, transform 0.25s, box-shadow 0.3s;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: 30px;
+      outline: none;
+      width: max-content;
+      min-width: 120px;
+    }
+    .back-btn:hover, .back-btn:focus {
+      background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+      color: #fff;
+      transform: translateX(-50%) scale(1.06);
+      box-shadow: 0 12px 36px 0 #38ef7d88;
+    }
+    .smartart-container {
+      max-width:900px;
+      margin:0 auto 30px auto;
+      background:#e7fff2;
+      border-radius:16px;
+      box-shadow:0 2px 12px #38ef7d33;
+      overflow-x: auto;
+      width:100%;
+    }
+    .smartart-inner {
+      min-width:600px;
+      padding:20px 0 10px 0;
+      width:100%;
+      overflow-x:auto;
+    }
+    main {
+      max-width:1000px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:15px;
+      box-shadow:0 8px 22px rgba(0,0,0,0.13);
+      padding:2rem 2.2rem;
+      width:100%;
+      box-sizing: border-box;
+    }
+    h2 { color:#11998e; border-bottom:3px solid #38ef7d; padding-bottom:0.4rem;}
+    ul, p, ol { font-size:1.07rem; line-height:1.6;}
+    table {
+      width:100%;
+      border-collapse:collapse;
+      margin:18px 0 0 0;
+      overflow-x: auto;
+      display: block;
+    }
+    th, td { border:1.5px solid #c8f7e7; padding:10px 8px; text-align:left;}
+    th { background:#11998e; color:#fff;}
+    tr:nth-child(even) { background:#f5fff9;}
+    .faq { background:#e7fff2; border-radius:10px; padding:1em 1.5em; margin:1.5em 0;}
+    .faq h3 { color:#11998e; margin-bottom: 0.5em;}
+    .copyright {
+      text-align: center;
+      color: #fff;
+      font-size: 1.08em;
+      letter-spacing: 1.3px;
+      margin: 36px auto 0 auto;
+      opacity: 0.9;
+      text-shadow: 0 2px 10px #11998e99;
+      font-weight: 600;
+      padding-bottom: 14px;
+      width: 100vw;
+      box-sizing: border-box;
+    }
+    @media(max-width:900px){
+      main, .smartart-container {
+        max-width:100vw;
+        border-radius:0;
+        box-shadow:none;
+      }
+      .smartart-inner {
+        min-width:350px;
+        padding:12px 0 8px 0;
+      }
+      .back-btn { width: 96vw; font-size: 1em;}
+      header { padding-left: 0.5em; padding-right: 0.5em;}
+    }
+    @media(max-width:600px){
+      main {
+        padding: 1.1rem 0.4rem;
+        font-size: 0.99em;
+      }
+      .smartart-inner { min-width:320px; }
+      .back-btn { width: 98vw; font-size: 0.98em; }
+      h2 { font-size: 1.1em; }
+      table, th, td { font-size: 0.97em;}
+    }
+    ::selection { background: transparent; }
+    .highlight {
+        color:red;
+        font-weight: 800;
+      Font-size: 24px;
+        }
+  </style>
+  <script>
+    // Disable right-click
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    // Disable copy, cut, paste
+    document.addEventListener('copy', event => event.preventDefault());
+    document.addEventListener('cut', event => event.preventDefault());
+    document.addEventListener('paste', event => event.preventDefault());
+    // Disable drag
+    document.addEventListener('dragstart', event => event.preventDefault());
+    // Disable PrintScreen, Print, Save
+    document.addEventListener('keydown', function(e) {
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText('');
+        alert('Screenshots are disabled on this page.');
+        e.preventDefault();
+      }
+      if (e.ctrlKey && (e.key.toLowerCase() === 'p' || e.key.toLowerCase() === 's')) {
+        alert('Printing and saving are disabled on this page.');
+        e.preventDefault();
+      }
+    });
+    // Try to block screenshots via PrintScreen (works in modern browsers)
+    window.addEventListener('keyup', function(e) {
+      if (e.key === "PrintScreen") {
+        navigator.clipboard.writeText('');
+        alert('Screenshots are disabled on this page.');
+      }
+    });
+    // Remove selection
+    document.addEventListener('selectstart', event => event.preventDefault());
+    document.addEventListener('mousedown', event => event.preventDefault());
+  </script>
+</head>
+<body>
+<header>
+  <h1>CHITRAGUPT ACADEMY</h1>
+  <p>AN ISO CERTIFIED INSTITUTE</p>
+</header>
+<div class="smartart-container">
+  <div class="smartart-inner">
+    <svg viewBox="0 0 900 350" width="100%" height="350">
+      <!-- Marker Definition -->
+      <defs>
+        <marker id="arrow" markerWidth="10" markerHeight="10" refX="10" refY="5" orient="auto">
+          <polygon points="0,0 10,5 0,10" fill="#38ef7d"/>
+        </marker>
+      </defs>
+      <!-- Main Node: Computer -->
+      <rect x="370" y="30" width="160" height="50" rx="16" fill="#11998e"/>
+      <text x="450" y="62" text-anchor="middle" fill="#fff" font-size="22" font-family="Poppins">Computer</text>
+      <!-- Arrow to Storage -->
+      <line x1="450" y1="80" x2="450" y2="120" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <!-- Storage Box -->
+      <rect x="320" y="120" width="260" height="30" rx="8" fill="#e7fff2"/>
+      <text x="450" y="140" text-anchor="middle" fill="#11998e" font-size="14" font-family="Poppins">
+        Storage (HDD, SSD, RAM, etc.)
+      </text>
+      <!-- Arrows from Storage to components -->
+      <line x1="450" y1="150" x2="200" y2="220" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <line x1="450" y1="150" x2="450" y2="220" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <line x1="450" y1="150" x2="700" y2="220" stroke="#38ef7d" stroke-width="3" marker-end="url(#arrow)"/>
+      <!-- Input Box -->
+      <rect x="140" y="230" width="120" height="60" rx="10" fill="#ffffff" stroke="#11998e" stroke-width="1.5"/>
+      <text x="200" y="252" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Input</text>
+      <text x="200" y="274" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Keyboard, Mouse</text>
+      <!-- Processing Box -->
+      <rect x="390" y="230" width="120" height="60" rx="10" fill="#ffffff" stroke="#11998e" stroke-width="1.5"/>
+      <text x="450" y="252" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Processing</text>
+      <text x="450" y="274" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">CPU</text>
+      <!-- Output Box -->
+      <rect x="640" y="230" width="120" height="60" rx="10" fill="#ffffff" stroke="#11998e" stroke-width="1.5"/>
+      <text x="700" y="252" text-anchor="middle" fill="#11998e" font-size="16" font-family="Poppins">Output</text>
+      <text x="700" y="274" text-anchor="middle" fill="#555" font-size="12" font-family="Poppins">Monitor, Printer</text>
+    </svg>
+    <div style="text-align:center; color:#11998e; font-size:1em; margin-top:10px;">
+      <b>SmartArt:</b> Block diagram of a computer system (Input → Processing → Output, with Storage)
+    </div>
+  </div>
+</div>
+
+<main>
+  <h2>Computer Full Form:</h2>
+    <span class="highlight">C</span>ommonly <span class="highlight">O</span>perated <span class="highlight">M</span>achine <span class="highlight">P</span>articularly <span class="highlight">U</span>sed for <span class="highlight">T</span>echnical and <span class="highlight">E</span>ducational <span class="highlight">R</span>esearch<br>
+</div>
+  <h2>Definition</h2>
+  <p>
+    A <b>computer</b> is an electronic device that can store, retrieve, and process data according to a set of instructions called programs. It can accept input (data), process it, store it, and produce output (results). Computers can perform complex calculations, logical operations, and data manipulation with speed, accuracy, and reliability.
+  </p>
+  <ul>
+    <li><b>Origin:</b> The word "computer" comes from the Latin "computare", meaning "to calculate".</li>
+    <li><b>Basic Function:</b> Accepts input, processes data, stores information, and produces output.</li>
+    <li><b>Examples:</b> Desktop, laptop, smartphone, ATM, server, embedded systems, etc.</li>
+  </ul>
+
+  <h2>Block Diagram of a Computer</h2>
+  <ul>
+    <li><b>Input Unit:</b> Devices like keyboard, mouse, scanner, microphone, etc. used to enter data and instructions into the computer.</li>
+    <li><b>Central Processing Unit (CPU):</b> The "brain" of the computer that processes instructions. It consists of:
+      <ul>
+        <li><b>ALU (Arithmetic Logic Unit):</b> Performs arithmetic and logical operations.</li>
+        <li><b>CU (Control Unit):</b> Controls and coordinates all operations of the computer.</li>
+        <li><b>Registers:</b> Small, fast memory locations inside the CPU for temporary data storage.</li>
+      </ul>
+    </li>
+    <li><b>Memory/Storage Unit:</b> Stores data temporarily (RAM) or permanently (HDD, SSD, ROM).</li>
+    <li><b>Output Unit:</b> Devices like monitor, printer, speaker, projector, etc. that display or present results to the user.</li>
+  </ul>
+<div class="screenshot-container" aria-label="Sticky Notes interface screenshot is locked and unavailable">
+                <img src="block.png" draggable="false" />
+                <div class="lock-overlay" aria-hidden="true">🔒</div>
+</div>
+   <div class="section" id="terms">
+        <h2>Important Computer Terms</h2>
+        <ul>
+            <li><b>Data:</b> Raw facts and figures that are yet to be processed (e.g., numbers, text, images).</li>
+            <li><b>Information:</b> Processed and organized data that is meaningful and useful for decision-making.</li>
+            <li><b>Instruction:</b> A command or order that tells the computer what operation to perform.</li>
+            <li><b>Processing:</b> The sequence of actions the computer takes to convert data into information.</li>
+        </ul>
+    </div>
+    <div class="section" id="hardware">
+        <h2>Hardware and Software</h2>
+        <ul>
+            <li><b>Hardware:</b> The physical components of a computer system (e.g., CPU, monitor, keyboard, mouse, hard disk, etc.).</li>
+            <li><b>Software:</b> A collection of programs and instructions that tell the hardware what to do. Software can be system software (like Windows, Linux) or application software (like MS Word, Photoshop).</li>
+        </ul>
+    </div>
+    <h2>Main Components of a Computer</h2>
+    <ul>
+<li><b>🖥️ Central Processing Unit (CPU):</b> The "brain" of the computer, responsible for executing instructions and processing data. It consists of the Arithmetic Logic Unit (ALU), Control Unit (CU), and registers.</li>
+<li><b>💾 Memory Unit:</b> Stores data, instructions, and results. It includes RAM (temporary memory) and ROM (permanent memory).</li>
+<li><b>⌨️ Input Devices:</b> Allow users to enter data and instructions into the computer (e.g., keyboard, mouse, scanner).</li>
+<li><b>🖨️ Output Devices:</b> Display or produce the processed results (e.g., monitor, printer, speakers).</li>
+  </ul>
+  <h2>Applications of Computers</h2>
+  <ul>
+    <li><b>Education:</b> E-learning, online classes, research, digital libraries.</li>
+    <li><b>Business:</b> Payroll, accounting, sales, inventory, communication.</li>
+    <li><b>Banking:</b> Online banking, ATMs, transactions.</li>
+    <li><b>Health:</b> Patient records, diagnostics, telemedicine.</li>
+    <li><b>Home:</b> Entertainment, shopping, communication.</li>
+    <li><b>Government:</b> Administration, record keeping, e-governance.</li>
+    <li><b>Industry:</b> Automation, design, manufacturing.</li>
+    <li><b>Transport:</b> Ticket booking, traffic control.</li>
+    <li><b>Science & Research:</b> Data analysis, simulations.</li>
+  </ul>
+
+  <h2>Working of a Computer</h2>
+  <ol>
+    <li>User provides input using input devices (keyboard, mouse, etc.).</li>
+    <li>Input is converted into binary form and sent to memory.</li>
+    <li>CPU fetches instructions and data from memory.</li>
+    <li>CPU processes data as per instructions (using ALU and CU).</li>
+    <li>Processed data is sent to output devices or stored for future use.</li>
+    <li>User receives output (on screen, printer, etc.).</li>
+  </ol>
+
+  <h2>Advantages of Computers</h2>
+  <ul>
+    <li>Fast and accurate calculations</li>
+    <li>Can store and retrieve large amounts of data</li>
+    <li>Can perform repetitive tasks without error</li>
+    <li>Can connect and communicate globally</li>
+    <li>Reduces paperwork and saves time</li>
+  </ul>
+
+  <h2>Disadvantages of Computers</h2>
+  <ul>
+    <li>Can lead to unemployment (automation)</li>
+    <li>Data security and privacy issues</li>
+    <li>Addiction and health problems (if overused)</li>
+    <li>Risk of viruses and hacking</li>
+    <li>High initial cost for advanced systems</li>
+  </ul>
+
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQs)</h3>
+    <ul>
+      <li><b>Q:</b> Who is known as the father of the computer?<br>
+          <b>A:</b> Charles Babbage is known as the father of the computer.</li>
+      <li><b>Q:</b> What is the full form of CPU?<br>
+          <b>A:</b> Central Processing Unit.</li>
+      <li><b>Q:</b> What is the difference between data and information?<br>
+          <b>A:</b> Data is raw facts and figures; information is processed data that is meaningful.</li>
+      <li><b>Q:</b> Name two input and two output devices.<br>
+          <b>A:</b> Input: Keyboard, Mouse. Output: Monitor, Printer.</li>
+      <li><b>Q:</b> What is software?<br>
+          <b>A:</b> Software is a set of instructions/programs that tell the computer what to do.</li>
+    </ul>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>
+    Computers are essential tools in the modern world, enabling us to perform tasks quickly, accurately, and efficiently. Understanding their working, features, and limitations helps us use them wisely and effectively.
+  </p>
+</main>
+  
+  <br><br><br><br>
+<a href="javascript:history.back()" class="back-btn">Back</a>
+  <br><br>
+<div class="copyright">
+  © Pawan Soni
+</div>
+</body>
+</html>
